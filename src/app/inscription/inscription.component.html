@@ -1,0 +1,302 @@
+<ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+ </ul>
+            <br><br><br>
+           
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12  " style="width: 670pt;">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+         
+            <div class="card-heading" style="background-color: rgb(17, 17, 17);">
+                <h2 class="title text-white text-align" style="text-align: center;">Pré-inscription</h2>
+            </div>
+            <div class="card-body">
+
+            <hr>
+                 
+                <mat-stepper linear #stepper>
+                    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Mes informations personnelles</ng-template>
+                        
+                        <section class="un">
+                        <div>
+                           
+                        <mat-form-field appearance="fill">
+                        <mat-label>Nom</mat-label>
+                        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+                        </mat-form-field><br>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Prénom</mat-label>
+                            <input matInput formControlName="secondCtrl" placeholder="Prénom" required>
+                            </mat-form-field><br>
+                          
+                                <mat-label style="color:rgb(144, 143, 143);font-size: large;font-weight: lighter;">Sexe</mat-label><br>
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button value="1">Féminin</mat-radio-button>
+                                    <mat-radio-button value="2">Masculin</mat-radio-button>
+                                  </mat-radio-group>
+                                  
+                               <br>
+                               <mat-form-field appearance="fill">
+                                <mat-label>Date de naissance</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="thirdCtrl">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                                <div>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                           placeholder="Ex. pat@example.com" >
+                                    <mat-hint>Email valide!</mat-hint>
+                                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                      Entrer un mail valide
+                                    </mat-error>
+                                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                                      Email est<strong> Obligatoire</strong>
+                                    </mat-error>
+                                  </mat-form-field><br>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Téléphone</mat-label>
+                                            <input matInput formControlName="fourthCtrl" placeholder="Last name, First name" required>
+                                            </mat-form-field><br>
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Adresse</mat-label>
+                                                <input matInput formControlName="fiveCtrl" placeholder="Last name, First name" required>
+                                                </mat-form-field>
+                                           
+                                </div>
+                           
+                            </section>
+                        <div>
+                        <button mat-button matStepperNext >Suivant<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                        
+                    </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Mon Curriculum Vitae (CV)</ng-template>
+                        <label for="formFileDisabled" class="form-label">Télécharger votre CV (Obligatoire)</label>
+<input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+                        <div>
+                            <br>
+                            <br>
+                        <button mat-button matStepperPrevious><i class="fa fa-chevron-left" aria-hidden="true"></i>Précédent</button>
+                        <button mat-button matStepperNext>Suivant<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                    </mat-step>
+                    <mat-step>
+                    <ng-template matStepLabel>Mon panier de formations</ng-template>
+                    <p style="color:red">Votre parcours doit comporter au moins 1 activité et toutes vos activités doivent être approuvées par au moins un justificatif.</p>
+                 <table class="table mt-3">
+                  <thead>
+                    <tr>
+                      <th scope="col">type</th>
+                      <th scope="col">Domaine</th>
+                      <th scope="col">Année scolaire</th>
+                      <th scope="col">Etablissement</th>
+                      <th scope="col">Supprimer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><button style="background-color: brown" class="btn btn-danger mx-3"> Supprimer</button></td>
+                    </tr>
+                  </tbody>
+                 </table>
+                 <p style="color:red">Choisir votre activité pour l'ajouter à votre cursus.</p>
+                 <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253); " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                  Baccalauréat
+                </button>
+                <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  Études supérieures
+                </button>
+                <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                 Autre Activité
+                </button>
+                
+                <!-- Modal1-->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Baccalauréat</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Spécialité</mat-label>
+                              <select matNativeControl required>
+                                <option value="volvo">S.V.T</option>
+                                <option value="saab">Science de l'informatique</option>
+                                <option value="mercedes">Mathématique</option>
+                                <option value="audi">Techniques</option>
+                                <option value="audi">ECO GEST</option>
+                                <option value="audi">Lettres</option>
+                              </select>
+                              </mat-form-field><br>
+                          </div>
+                          <div class="mb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Ville</mat-label>
+                              <input matInput formControlName="fourthCtrl" placeholder="Last name, First name" required>
+                              </mat-form-field>
+                          </div>
+                          <div class="mb-3">
+                            <mat-form-field appearance="fill" >
+                              <mat-label>Mention</mat-label>
+                              <select matNativeControl required >
+                                <option value="volvo" >Passable</option>
+                                <option value="saab">Assez bien</option>
+                                <option value="mercedes">Bien</option>
+                                <option value="audi">Trés bien</option>
+                              </select>
+                              </mat-form-field><br>
+                          </div>
+                          
+                          <div class="mb-3">
+                          <label for="formFileDisabled" class="form-label">justificatif</label>
+<input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+</div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Ajouter</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                   <!-- Modal2 -->
+                   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="exampleModalLabel">Etude supérieures</h3>
+                        
+                        <button type="button1" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <mat-form-field appearance="fill">
+                                <mat-label>formation</mat-label>
+                                <select matNativeControl required>
+                                  <option value="volvo">BAC+1</option>
+                                  <option value="saab">BAC+2</option>
+                                  <option value="mercedes">BAC+3</option>
+                                  <option value="audi">M1</option>
+                                  <option value="audi">M2</option>
+                                </select>
+                                </mat-form-field><br>
+                                <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Etablissement</label>
+                                  <input type="text"   class="form-control form-control-sm" id="exampleInputEmail1" >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="exampleInputYear1" class="form-label">Année scolaire</label>
+                                    <input type="number"  class="form-control form-control-sm" id="exampleInputYear1" min="1997" max="2070" placeholder="YYYY">
+                                  </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Moyenne</label>
+                                  <input type="number"  class="form-control form-control-sm" id="exampleInputPassword1">
+                                </div>
+                                
+                              <br>
+                            <label for="formFileDisabled" class="form-label">justificatif</label>
+                            <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+                            </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+  <button type="button" class="btn btn-primary">Ajouter</button>
+</div>
+                      </div>
+                    </div>
+                  </div>
+                    <!-- Modal2 -->
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Autre activités</h3>
+                          
+                          <button type="button1" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                              
+                                  <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Type d'activité</label>
+                                    <input type="text"  class="form-control form-control-sm" id="exampleInputEmail1" placeholder="EX:Attestation/Certificat...">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputYear1" class="form-label">Année </label>
+                                      <input type="number"  class="form-control form-control-sm" id="exampleInputYear1" min="1997" max="2070" placeholder="YYYY">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleTextarea1" class="form-label">Commentaire</label>
+                                      <textarea class="form-control" id="exampleTextarea1" rows="3"></textarea>
+                                      <div class="form-text">optionnelle.</div>
+                                    </div>
+                                  
+                                <br>
+                              <label for="formFileDisabled" class="form-label">justificatif</label>
+                              <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+                              </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+    <button type="button" class="btn btn-primary">Ajouter</button>
+  </div>
+                        </div>
+                      </div>
+                    </div>
+                     
+<br><br>                
+                
+                
+                  
+                    </mat-step>
+                </mat-stepper>
+                
+</div>
+
+</div>
+
+</div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<app-footer></app-footer>
+
+
+
+

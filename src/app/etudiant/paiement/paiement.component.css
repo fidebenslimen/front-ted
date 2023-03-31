@@ -1,0 +1,18 @@
+.card{
+   justify-content: center;
+    width:700pt;
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fieldset {
+    border: 1px solid gold;;
+    padding: 10px;
+    width: 200pt;
+   
+  }
+  legend{
+   justify-content: center;
+   color:gold;
+   font-weight: bold;
+  }

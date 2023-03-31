@@ -1,0 +1,165 @@
+<app-header></app-header>
+<br>
+<h1 style="font-size: 30pt;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color:goldenrod">informations de Paiement</h1>
+<div style="padding-left: 140pt;">
+<div class="card" >
+    <div class="card-body">
+   <nav style="display: flex;justify-content: space-between;"> <h5 class="card-title" style="font-size: 20pt;color: gold;">Echéancier de paiement</h5><div style="font-size: 20pt;color: gold;"><i class="fa fa-credit-card-alt" aria-hidden="true" ></i></div></nav>
+    <p class="card-text">
+        Vous êtes en train de procéder au paiement des frais de votre inscription.
+    </p>
+    <td style="display: flex; justify-content: space-evenly;color: black;">
+        <tr>Année<br>2022-2023</tr>
+        <tr>Niveau</tr>
+        <tr>code</tr>
+    </td>
+
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> # </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Type frais </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> 	Date échéance </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Montant	 </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+</div>
+
+</div>
+<br><br>
+<section style="display: flex; padding-left: 0pt;justify-content: space-evenly;">
+<fieldset class="fieldset" >
+  <legend class="text-center">Paiement en ligne </legend>
+  <p>procéder au paiement en ligne du montant dû, d'une partie du montant <br> dû ou d'une avance,
+    veuillez cliquer sur le bouton ci-dessous.</p><br>
+    <button type="button" style="background-color:gold;border: gold; color: white;height:20pt " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+      <i class="fa fa-credit-card-alt" aria-hidden="true" ></i> Paiement en ligne
+    </button>
+</fieldset>
+<fieldset class="fieldset" >
+  <legend class="text-center">Preuve de paiement </legend>
+  <p>Si vous avez effectué un paiement via un virement, un transfert, un mandat ou autre, vous pouvez envoyer une copie de la preuve de paiement en cliquant sur le bouton ci-dessous..</p>
+    <button type="button" style="background-color:gold;border: gold; color: white;height:20pt " data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <i class="fa fa-plus" aria-hidden="true"></i> Preuve de paiement
+    </button>
+</fieldset>
+</section>
+
+
+<!-- Modal1-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Paiement en ligne</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body p-4">
+          <form>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="form-outline">
+                <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                  placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                <label class="form-label" for="typeText">Numéro de la carte</label>
+              </div>
+              <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-outline">
+                <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                  placeholder=".......DT" />
+                <label class="form-label" for="typeName">Frais </label>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center pb-2">
+              <div class="form-outline">
+                <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
+                  size="7" id="exp" minlength="7" maxlength="7" />
+                <label class="form-label" for="typeExp"> Date d'éxpiration</label>
+              </div>
+              <div class="form-outline">
+                <input type="password" id="typeText2" class="form-control form-control-lg"
+                  placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                <label class="form-label" for="typeText2">Cvv</label>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Payer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<!-- Modal1-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Preuve de paiement</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body p-4">
+          <form>
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Méthode de paiement</mat-label>
+                <select matNativeControl required>
+                  <option value="volvo">Virement bancaire</option>
+                  <option value="saab">Par chéque</option>
+                 
+                </select>
+                </mat-form-field><br>
+                <mat-form-field appearance="fill">
+                  <mat-label>Date de paiement</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div> 
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Payer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
