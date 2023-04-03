@@ -1,0 +1,41 @@
+<app-header></app-header>
+<br>
+
+<div style="padding-left: 100pt;">
+    <div class="card" style="padding-left: 40pt;width:700pt;">
+        <br>
+            <nav style="display: flex;justify-content: space-between;"> <h5 class="card-title" style="font-size: 30pt;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: gold;text-decoration: underline;"> Mes demandes</h5>
+                <div style="font-size: 30pt;color: gold;"><i class="fa fa-files-o" aria-hidden="true"></i></div></nav>
+                <hr>
+        <div class="card-body">
+    <form >
+        <mat-form-field appearance="fill">
+            <mat-label>type*</mat-label>
+            <mat-select >
+              <mat-option value="one">Attestation d'inscription</mat-option>
+              <mat-option value="two">Attestation de paiement</mat-option>
+              <mat-option value="two">Attestation de présence</mat-option>
+              <mat-option value="two">Demandes Stages et PFE</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Objet</mat-label>
+            <input matInput>
+          </mat-form-field><br>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Message</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field><br>
+            <br>
+          <div style="padding-left: 500pt;">
+       
+          <button type="button" class="btn btn-dark" ><i class="fa fa-floppy-o" aria-hidden="true"></i>Enregistrer</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<br><br>
+<app-footer></app-footer>

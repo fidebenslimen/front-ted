@@ -1,0 +1,10 @@
+mat-form-field {
+    width: 80%; /* adjust width to your liking */
+  }
+  
+  mat-select , mat-label {
+    font-size: 16px; /* adjust font size to your liking */
+    height: 10px; /* adjust height to your liking */
+    width:150pt;
+  }
+  

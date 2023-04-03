@@ -13,4 +13,16 @@ export class HeaderComponent {
   goToEtudiant() {
     this.router.navigate(['etudiant']);
   }
+  goToDemandes(){
+    this.router.navigate(['demandes']);
+
+  }
+  goToReclamations(){
+    this.router.navigate(['reclamation']);
+
+    
+  }
+  goToLog(){
+    this.router.navigate(['login']);
+  }
 }

@@ -22,7 +22,9 @@ import { PaiementComponent } from './etudiant/paiement/paiement.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import {MatTableModule} from '@angular/material/table';
-
+import { DemandesComponent } from './etudiant/demandes/demandes.component';
+import { ReclamationsComponent } from './etudiant/reclamations/reclamations.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,8 @@ import {MatTableModule} from '@angular/material/table';
     HeaderComponent,
     EtudiantComponent,
     PaiementComponent,
+    DemandesComponent,
+    ReclamationsComponent,
    
   ],
   imports: [
@@ -43,7 +47,7 @@ import {MatTableModule} from '@angular/material/table';
      MatRadioModule,MatDatepickerModule,
      HttpClientModule,MatNativeDateModule,
      MatSelectModule,MatDialogModule
-   ,MatTableModule,MdbModalModule
+   ,MatTableModule,MdbModalModule,  NgImageSliderModule,
  
      
   ],

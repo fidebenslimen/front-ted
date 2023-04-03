@@ -11,28 +11,28 @@
             
               
                 <div class="card-body  text-black" style="align-items: center;width: 100pt;">
-  
-                  <form>
+                   <form (ngSubmit)="formSubmit()">
                     <br>
                     <h5 class=" mb-3 pb-3" style="letter-spacing: 1px; color: aliceblue;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: medium;">Veuillez saisir votre login et mot de passe</h5>
   <hr>
                     <div class=" form-outline mb-4" style="display: flex;padding-right: 10pt;">
                      <nav style="padding-right: 20pt;"> <i class="fa fa-user" aria-hidden="true" style="color:aliceblue;font-size: 31pt ;"></i></nav>
-                     <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="Identifiant" />
+                     <input [(ngModel)]="user.identifiant" name="identifiant" type="text" id="Identifiant" class="form-control form-control-lg" placeholder="Identifiant" />
                     
                     </div>
   
                     <div class="form-outline mb-4"  style="display: flex;padding-right: 10pt;">
                       <nav style="padding-right: 20pt;">  <i class="fa fa-lock" aria-hidden="true" style="color:aliceblue;font-size: 31pt ;"></i></nav>
-                      <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Mot de passe"/>
+                      <input [(ngModel)]="user.password"  name="password" type="password" id="mdp" class="form-control form-control-lg" placeholder="Mot de passe"/>
                    
                     </div>
                    
   <div style="display: flex;justify-content:center">
                     <div class="" style="padding-right: 20pt;">
-                      <button class="btn btn-dark btn-lg btn-block" type="button"   style="height:45px" routerLink="/etudiant">Connexion</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="formSubmit()" style="height:45px" >Connexion</button>
                     </div>
                     <button class="btn btn-dark btn-lg btn-block" type="button" routerLink="/inscri" style="height:45px">Pré-inscription</button>
+                    
         </div>
         <hr>
      

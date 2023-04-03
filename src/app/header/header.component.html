@@ -11,12 +11,49 @@
             </a>
         
      </div>
-    <div style="display:flex;padding-left: 400pt; color: black;padding-top: 4pt;">
-     <i class="fa fa-bell" aria-hidden="true" style="padding-right: 25pt;"></i>
-     <p > <b style="font-weight: bold;">Bienvenue</b> user.name</p>
-     <i class="fa fa-user-circle" aria-hidden="true"></i>
-    
- 
+    <div style="display:flex;padding-left: 430pt; color: black;padding-top: 4pt;">
+      <ul class="navbar-nav">
+        <!-- Notification dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          <i class="fa fa-bell" aria-hidden="true"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Notification dropdown -->
+      </ul>
+     <div class="dropdown-center">
+      <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+       Bienvenue  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Mon compte</a></li>
+        <li><a class="dropdown-item" href="#">changer mot de passe</a></li>
+        <li><a class="dropdown-item" (click)=" goToLog()">Se déconnecter</a></li>
+        
+      </ul>
+    </div>
     </div>     
     
     </nav>
@@ -32,12 +69,26 @@
           <li class="nav-item">
             <a class="nav-link" (click)=" goToEtudiant()">Acceuil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mon espace</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
+         <li><div class="dropdown-center">
+            <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Mon espace 
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Emploi du temps</a></li>
+              <li><a class="dropdown-item" href="#">Absences</a></li>
+              <li><a class="dropdown-item" href="#">Notes et résultat</a></li>
+              <li><a class="dropdown-item" href="#">Plan d'études</a></li>
+            </ul>
+          </div></li> 
+          <li><div class="dropdown-center">
+            <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="goToDemandes()">Mes demandes</a></li>
+              <li><a class="dropdown-item" (click)="goToReclamations()">Réclamations</a></li>
+            </ul>
+          </div></li> 
           <li class="nav-item">
             <a class="nav-link" (click)=" goToPaiement()">Paiement</a>
           </li>
