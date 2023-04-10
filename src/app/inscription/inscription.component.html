@@ -33,7 +33,7 @@
                            
                         <mat-form-field appearance="fill">
                         <mat-label>Nom</mat-label>
-                        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+                        <input matInput formControlName="firstCtrl" placeholder="Nom" required>
                         </mat-form-field><br>
                         <mat-form-field appearance="fill">
                             <mat-label>Prénom</mat-label>
@@ -101,79 +101,101 @@
                     </mat-step>
                     <mat-step>
                     <ng-template matStepLabel>Mon panier de formations</ng-template>
+                    <p style="color:red">Choisir votre activité pour l'ajouter à votre cursus.</p>
+              
+                    <button type="button"  style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253); " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                     Baccalauréat
+                   </button>
+                   <button type="button" name="buttonClicked" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                     Études supérieures
+                   </button>
+                   <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    Expérience professionnelle
+                   </button>
+                 
+                   <br>
                     <p style="color:red">Votre parcours doit comporter au moins 1 activité et toutes vos activités doivent être approuvées par au moins un justificatif.</p>
                  <table class="table mt-3">
                   <thead>
-                    <tr>
-                      <th scope="col">type</th>
-                      <th scope="col">Domaine</th>
-                      <th scope="col">Année scolaire</th>
+                    <tr >
+                      <th scope="col">Id</th>
+                     
+                      <th scope="col"></th>
                       <th scope="col">Etablissement</th>
+                      <th scope="col">Mention</th>
+                      <th scope="col">Année </th>
                       <th scope="col">Supprimer</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td><button style="background-color: brown" class="btn btn-danger mx-3"> Supprimer</button></td>
+                    <tr *ngFor="let row of activiteData">
+                      <td>{{row.id}}</td>
+                      <td>{{row.specialite}}</td>
+                      <td>{{row.etablissement}}</td>
+                      <td>{{row.mention}}</td> 
+                      <td>{{row.annee}}</td>                   
+                      <td>
+                        <button style="background-color: brown" type="submit" class="btn btn-danger mx-3" (click)="deleteActivite(row)">Supprimer</button>
+                      </td>
                     </tr>
                   </tbody>
                  </table>
-                 <p style="color:red">Choisir votre activité pour l'ajouter à votre cursus.</p>
-                 <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253); " data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                  Baccalauréat
-                </button>
-                <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                  Études supérieures
-                </button>
-                <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                 Autre Activité
-                </button>
+                
                 
                 <!-- Modal1-->
                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLabel">Baccalauréat</h3>
+                        <h3 class="modal-title" id="exampleModalLabel" >Baccalauréat</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form>
+                        <form [formGroup]="candidatForm" >
+                         
+                          <section  style="display: flex;justify-content: space-evenly;">
+                          <div>
                           <div class="mb-3">
                             <mat-form-field appearance="fill">
                               <mat-label>Spécialité</mat-label>
-                              <select matNativeControl required>
-                                <option value="volvo">S.V.T</option>
-                                <option value="saab">Science de l'informatique</option>
-                                <option value="mercedes">Mathématique</option>
-                                <option value="audi">Techniques</option>
-                                <option value="audi">ECO GEST</option>
-                                <option value="audi">Lettres</option>
+                              <select matNativeControl required  formControlName="specialite">
+                                <option value="svt">S.V.T</option>
+                                <option value="scinfo">Science de l'informatique</option>
+                                <option value="math">Mathématique</option>
+                                <option value="tech">Techniques</option>
+                                <option value="ecogest">ECO GEST</option>
+                                <option value="lettres">Lettres</option>
                               </select>
                               </mat-form-field><br>
                           </div>
                           <div class="mb-3">
                             <mat-form-field appearance="fill">
-                              <mat-label>Ville</mat-label>
-                              <input matInput formControlName="fourthCtrl" placeholder="Last name, First name" required>
+                              <mat-label>Etablissement</mat-label>
+                              <input matInput   required formControlName="etablissement"> 
+                              </mat-form-field>
+                          </div>
+                        </div>
+                      <div>
+                          <div class="mb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Année scolaire</mat-label>
+                              <input matInput  min="1997" max="2070"  required formControlName="annee"> 
                               </mat-form-field>
                           </div>
                           <div class="mb-3">
-                            <mat-form-field appearance="fill" >
+                            <mat-form-field appearance="fill">
                               <mat-label>Mention</mat-label>
-                              <select matNativeControl required >
-                                <option value="volvo" >Passable</option>
-                                <option value="saab">Assez bien</option>
-                                <option value="mercedes">Bien</option>
-                                <option value="audi">Trés bien</option>
+                              <select matNativeControl required  formControlName="mention">
+                                <option value="Trés bien">Trés bien</option>
+                                <option value="Bien">Bien</option>
+                                <option value="Assez bien">Assez bien</option>
+                                <option value="Passable">Passable</option>
+                                
                               </select>
                               </mat-form-field><br>
                           </div>
-                          
+                        </div>
+                      </section>
                           <div class="mb-3">
                           <label for="formFileDisabled" class="form-label">justificatif</label>
 <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
@@ -182,45 +204,54 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-primary">Ajouter</button>
+                        <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Ajouter</button>
                       </div>
                     </div>
                   </div>
                 </div>
+                
                    <!-- Modal2 -->
                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h3 class="modal-title" id="exampleModalLabel">Etude supérieures</h3>
+                          <h3 class="modal-title" id="exampleModalLabel" formControlName="type">Etude supérieures</h3>
                         
                         <button type="button1" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            <form>
+                            <form [formGroup]="candidatForm">
+                              
                               <mat-form-field appearance="fill">
                                 <mat-label>formation</mat-label>
-                                <select matNativeControl required>
-                                  <option value="volvo">BAC+1</option>
-                                  <option value="saab">BAC+2</option>
-                                  <option value="mercedes">BAC+3</option>
-                                  <option value="audi">M1</option>
-                                  <option value="audi">M2</option>
+                                <select matNativeControl required formControlName="specialite">
+                                  <option value="BAC+1">BAC+1</option>
+                                  <option value="BAC+2">BAC+2</option>
+                                  <option value="BAC+3">BAC+3</option>
+                                  <option value="M1">M1</option>
+                                  <option value="M2">M2</option>
                                 </select>
                                 </mat-form-field><br>
                                 <div class="mb-3">
                                   <label for="exampleInputEmail1" class="form-label">Etablissement</label>
-                                  <input type="text"   class="form-control form-control-sm" id="exampleInputEmail1" >
+                                  <input type="text"   class="form-control form-control-sm" id="exampleInputEmail1" formControlName="etablissement" >
+                                  </div>
+                                  <div class="mb-3">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Mention</mat-label>
+                                      <select matNativeControl required  formControlName="mention">
+                                        <option value="Trés bien">Trés bien</option>
+                                        <option value="Bien">Bien</option>
+                                        <option value="Assez bien">Assez bien</option>
+                                        <option value="Passable">Passable</option>
+                                        
+                                      </select>
+                                      </mat-form-field><br>
                                   </div>
                                   <div class="mb-3">
                                     <label for="exampleInputYear1" class="form-label">Année scolaire</label>
-                                    <input type="number"  class="form-control form-control-sm" id="exampleInputYear1" min="1997" max="2070" placeholder="YYYY">
+                                    <input type="number"  class="form-control form-control-sm" id="exampleInputYear1" min="1997" max="2070" placeholder="YYYY" formControlName="annee">
                                   </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Moyenne</label>
-                                  <input type="number"  class="form-control form-control-sm" id="exampleInputPassword1">
-                                </div>
-                                
                               <br>
                             <label for="formFileDisabled" class="form-label">justificatif</label>
                             <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
@@ -228,31 +259,42 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-  <button type="button" class="btn btn-primary">Ajouter</button>
+  <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Ajouter</button>
 </div>
                       </div>
                     </div>
                   </div>
-                    <!-- Modal2 -->
+                    <!-- Modal3 -->
                     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel">Autre activités</h3>
+                            <h3 class="modal-title" id="exampleModalLabel"> Expérience professionnelle </h3>
                           
                           <button type="button1" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                              <form>
+                              <form [formGroup]="candidatForm">
                               
                                   <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Type d'activité</label>
-                                    <input type="text"  class="form-control form-control-sm" id="exampleInputEmail1" placeholder="EX:Attestation/Certificat...">
+                                    <label for="exampleInputEmail1" class="form-label">Poste</label>
+                                    <input type="text"  class="form-control form-control-sm" id="exampleInputEmail1" placeholder="EX:Stagiaire,junior..." formControlName="specialite">
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInputYear1" class="form-label">Année </label>
-                                      <input type="number"  class="form-control form-control-sm" id="exampleInputYear1" min="1997" max="2070" placeholder="YYYY">
+                                      <label for="exampleInputEmail1" class="form-label">Année d'entrée et de sortie</label>
+                               <input type="string"  class="form-control form-control-sm" id="exampleInputYear1" min="1997-01-01" max="2070-01-01" placeholder="YYYY-MM-DD" formControlName="annee">
                                     </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label" >Nom de l'entreprise</label>
+                                      <input type="text"  class="form-control form-control-sm" id="exampleInputEmail1" placeholder="EX:Stagiaire,junior..." formControlName="etablissement">
+                                      </div>
+                                      <label for="exampleInputEmail1" class="form-label">Avez vous des certificats?</label>
+                                      <mat-radio-group aria-label="Select an option">
+                                        <mat-radio-button value="oui">Oui</mat-radio-button>
+                                        <mat-radio-button value="non">Non</mat-radio-button>
+                                      </mat-radio-group>
+                                      <p style="color:rgb(141, 141, 141)">Si oui, ajouter  les justificatifs et préciser dans les commentaire le type de certificat.<p>
+                
                                     <div class="mb-3">
                                       <label for="exampleTextarea1" class="form-label">Commentaire</label>
                                       <textarea class="form-control" id="exampleTextarea1" rows="3"></textarea>
@@ -266,11 +308,13 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-    <button type="button" class="btn btn-primary">Ajouter</button>
+    <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Ajouter</button>
   </div>
                         </div>
                       </div>
                     </div>
+                    
+                   
                      
 <br><br>                
                 

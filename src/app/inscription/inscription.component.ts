@@ -3,7 +3,8 @@ import {FormBuilder, Validators,FormGroup} from '@angular/forms';
 import { MatDialog } from  '@angular/material/dialog';
 import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-
+import { inscriptionModel1 } from './inscription.model';
+import { CandidatService } from '../services/candidat.service';
 interface type {
   value: string;
   viewValue: string;
@@ -22,6 +23,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
+  candidatForm!:FormGroup;
+  inscriptionModel1Obj :inscriptionModel1= new inscriptionModel1();
+  activiteData !:any;
+
+  
  firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
     secondCtrl:['', Validators.required],
@@ -35,7 +41,11 @@ export class InscriptionComponent implements OnInit {
   });
   isEditable = false;
 
-  constructor(private _formBuilder: FormBuilder,dialogRef : MatDialog) {}
+  constructor(private _formBuilder: FormBuilder,dialogRef : MatDialog,private api:CandidatService) {
+
+    
+  }
+  
   types: type[] = [
     {value: 'Baccalauréat', viewValue: 'Baccalauréat'},
     {value: 'Études supérieures', viewValue: 'Études supérieures'},
@@ -50,15 +60,57 @@ export class InscriptionComponent implements OnInit {
     {value: 'Licence Computer Engineering-ingéierie des réseaux et systémes', viewValue: 'Licence Computer Engineering-ingéierie des réseaux et systémes'},
     {value: 'Executive MBA', viewValue: 'Executive MBA'},
   ];
-  
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-formValue !: FormGroup;
+   emailFormControl = new FormControl('', [Validators.required, Validators.email]); 
   matcher = new MyErrorStateMatcher();
+ 
   ngOnInit(): void {
-    this.formValue = this._formBuilder.group({
-      
+    this.candidatForm = this._formBuilder.group({
+      specialite:[''],
+      etablissement:[''],
+      mention:[''],
+      annee:[''],
+      type:[''],
+
+    })
+    this.getAllActivite();
+  }
+
+
+  postCandidatDetails(){
+   
+    this.inscriptionModel1Obj.mention=this.candidatForm.value.mention;
+    this.inscriptionModel1Obj.specialite=this.candidatForm.value.specialite;
+    this.inscriptionModel1Obj.etablissement=this.candidatForm.value.etablissement;
+    this.inscriptionModel1Obj.annee=this.candidatForm.value.annee;
+    this.inscriptionModel1Obj.type=this.candidatForm.value.type;
+
+    this.api.postActivite(this.inscriptionModel1Obj)
+    .subscribe(res=>{
+      console.log(res);
+      alert("Activité bien ajoutée");
+      this.candidatForm.reset();
+      this.getAllActivite();
+    },
+    err=>{
+      alert('something went wrong!!!');
+    })
+
+  }
+  getAllActivite(){
+    this.api.getActivite()
+    .subscribe(res=>{
+      this.activiteData=res;
     })
   }
+  deleteActivite (row: any){
+    this.api.deleteActivite(row.id)
+      .subscribe(res =>{
+        alert("Activité suprimée");
+        this.getAllActivite();
+
+    })
+  }
+  
 
 }
 

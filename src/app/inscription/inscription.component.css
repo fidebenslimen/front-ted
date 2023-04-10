@@ -7,14 +7,14 @@
   }
   button{
     background-color: black;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     border-radius: 10%;
     height: 30pt;
   }
   button:hover{
-    background-color: aliceblue;
+    background-color: white;
     color:black;
-    border:whitesmoke;
+    border:white;
     
   }
   @keyframes animate {
@@ -132,7 +132,7 @@
 app-footer{
 
     position:relative;
-    opacity: 0.7;
+   
     background-color: rgba(0, 0, 0, 0.7);
     height: 20pt;
 }

@@ -15,5 +15,15 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "candidat": [
+    {
+      "id": 3,
+      "type": "",
+      "specialite": "BAC+2",
+      "etablissement": "GG",
+      "mention": "Assez bien",
+      "annee": 2020
+    }
+  ]
 }
