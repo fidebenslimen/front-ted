@@ -11,7 +11,7 @@ import {
   faChartBar,
   faContactBook,
   faFilePrescription,
- faBook,
+ faBook,faCalendarDays
 } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidenav',
@@ -22,7 +22,7 @@ export class SidenavComponent implements OnInit {
 faDashboard = faDashboard;
   faUser= faUser;
   faUserGraduate =faUserGraduate;
-   faMailBulk =  faMailBulk;
+  faCalendarDays =  faCalendarDays;
    faMoneyBills =  faMoneyBills;
   faChartBar = faChartBar;
   faFilePrescription=faFilePrescription;
@@ -42,6 +42,9 @@ faDashboard = faDashboard;
   }
   gotoS(){
     this.router.navigate(['students']);
+  }
+  gotoInscri(){
+    this.router.navigate(['admissions']);
   }
  
   ngOnInit(): void {

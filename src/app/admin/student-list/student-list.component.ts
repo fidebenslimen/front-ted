@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent  implements OnInit{
- 
+  date!: Date;
   constructor() { }
 
   ngOnInit(): void {

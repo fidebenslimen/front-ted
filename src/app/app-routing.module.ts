@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'professors', component:ProfessorsComponent},
   {path: 'dashbords', component:PrincipaleComponent},
   {path: 'students', component:StudentListComponent},
-{path: 'admin/admissions', component:AdmissionsComponent},
+{path: 'admissions', component:AdmissionsComponent},
   
 
 

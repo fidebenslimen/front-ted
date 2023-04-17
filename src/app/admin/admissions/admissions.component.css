@@ -14,9 +14,36 @@ justify-content: space-evenly;
 }
 #chart{
     height: 350px;
-    width: 100%;
+    width: 
+    900px;
     background-color: #ffffff;
     border-radius: 5px;
     margin: 10px;
+   
     box-shadow: 5px 5px 5px 5px #939393; 
 }
+.List{
+    padding: 40pt;
+    padding-left: 60px;
+
+}
+/*.master{
+    background-color: #ffffff;
+    border-radius: 5px;
+   
+   width:400px;
+   
+    box-shadow: 3px  3px 3px #939393; 
+}*/
+.licence{
+
+
+
+
+}
+.vertical-line {
+    border-left: 2px solid rgb(85, 85, 84);
+    height: 400px; /* adjust height as needed */
+    margin: 0 10px; /* adjust margin as needed */
+  }
+  

@@ -143,4 +143,77 @@
 </table>
 </div>
 </nav>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" >Informations</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+         
+          
+          <div>
+            <section  style="display: flex;justify-content: space-evenly;">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput   required formControlName="fullname"> 
+                </mat-form-field>
+            </div>
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <select matNativeControl required  formControlName="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                
+                </select>
+                </mat-form-field><br>
+            </div>
+          </section>
+          <section  style="display: flex;justify-content: space-evenly;">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Phone Number</mat-label>
+              <input matInput   required formControlName="phonenumber"> 
+              </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput   required formControlName="email"> 
+              </mat-form-field>
+          </div></section>
+          <section  style="display: flex;justify-content: space-evenly;">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Classe</mat-label>
+                <input matInput   required formControlName="departement"> 
+                </mat-form-field>
+            </div>
+            
+          <div class="mb-3" > 
+            <mat-label style="color:gray;">Date de naissance</mat-label>
+                 <div class="card ">  
+                  <p-calendar [(ngModel)]="date" formControlName="dtr"></p-calendar></div>
+          </div>
+         
+      </section>
+        </div>
+      <div>
+          
+       
+        </div>
+      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" >Add</button>
+      </div>
+    </div>
+  </div>
+</div>
 
