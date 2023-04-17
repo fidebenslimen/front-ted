@@ -25,6 +25,26 @@ import {MatTableModule} from '@angular/material/table';
 import { DemandesComponent } from './etudiant/demandes/demandes.component';
 import { ReclamationsComponent } from './etudiant/reclamations/reclamations.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { AdminComponent } from './admin/admin.component';
+import { PrincipaleComponent } from './admin/principale/principale.component';
+import { TeteComponent } from './admin/tete/tete.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdmissionsComponent } from './admin/admissions/admissions.component';
+import { NombreStaffEachComponent } from './admin/nombre-staff-each/nombre-staff-each.component';
+import { StudentListComponent } from './admin/student-list/student-list.component';
+import { UniversityReportComponent } from './admin/university-report/university-report.component';
+import { ChartModule } from 'angular-highcharts';
+import { ScheduleModule,RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { CalenderComponent } from './admin/calender/calender.component';
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { CalendarOptions } from '@fullcalendar/core';
+import { ProfessorsComponent } from './admin/professors/professors.component';
+import { SidenavComponent } from './admin/sidenav/sidenav.component';
+import { CalendarModule } from 'primeng/calendar';
+import { PayemenComponent } from './admin/payemen/payemen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +56,19 @@ import { NgImageSliderModule } from 'ng-image-slider';
     PaiementComponent,
     DemandesComponent,
     ReclamationsComponent,
+    AdminComponent,
+ 
+    PrincipaleComponent,
+    TeteComponent,
+    AdmissionsComponent,
+    NombreStaffEachComponent,
+    StudentListComponent,
+    UniversityReportComponent,
+    CalenderComponent,
+    ProfessorsComponent,
+    SidenavComponent,
+    PayemenComponent,
+ 
    
   ],
   imports: [
@@ -47,11 +80,15 @@ import { NgImageSliderModule } from 'ng-image-slider';
      MatRadioModule,MatDatepickerModule,
      HttpClientModule,MatNativeDateModule,
      MatSelectModule,MatDialogModule
-   ,MatTableModule,MdbModalModule,  NgImageSliderModule,
+   ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
+   ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
+   , FullCalendarModule,CalendarModule
+   
  
      
   ],
-  providers: [],
+  
+  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

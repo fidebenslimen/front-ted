@@ -1,0 +1,128 @@
+
+<app-tete></app-tete>
+
+<nav class="flex">
+<app-sidenav></app-sidenav>
+
+<div class="parttwo">
+    <hr>
+    <section class="head">
+      
+        <div>
+          
+<h2 style="padding-right: 640px;color:rgb(16, 140, 241)">Professors </h2>
+<p style="color:gray;font-size: 9pt;">TED university</p>
+</div>
+
+
+<div class="buttons">
+<button type="button" class="btn btn-light">List View</button>
+<button type="button" class="btn btn-light"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</button>
+</div>
+</section>
+<table class="table mt">
+    <thead>
+      <tr >
+        <th scope="col">Full Name</th>
+       
+        <th scope="col">Phone Number</th>
+        <th scope="col">Departement</th>
+        <th scope="col">Recruitment date</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of activiteData" class="table-secondary">
+        <td >{{row.fullname}}</td>
+        <td>{{row.phonenumber}}</td>
+        <td>{{row.departement}}</td>
+        <td>{{row.dtr}}</td>
+        <td>{{row.email}}</td>
+        <td>
+            <button style="background-color:#545554" type="submit" class="btn" >View profile</button>
+          </td>
+        <td style="color:blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td> 
+        <td style="color:red" (click)="deleteActivite(row)"><i class="fa fa-trash-o" aria-hidden="true"></i></td>                   
+        
+      </tr>
+    </tbody>
+   </table>
+</div>
+
+</nav>
+
+<!-- Modal1-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" >Informations</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="ProfessorsForm">
+         
+          
+          <div>
+            <section  style="display: flex;justify-content: space-evenly;">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput   required formControlName="fullname"> 
+                </mat-form-field>
+            </div>
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <select matNativeControl required  formControlName="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                
+                </select>
+                </mat-form-field><br>
+            </div>
+          </section>
+          <section  style="display: flex;justify-content: space-evenly;">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Phone Number</mat-label>
+              <input matInput   required formControlName="phonenumber"> 
+              </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput   required formControlName="email"> 
+              </mat-form-field>
+          </div></section>
+          <section  style="display: flex;justify-content: space-evenly;">
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Departement</mat-label>
+                <input matInput   required formControlName="departement"> 
+                </mat-form-field>
+            </div>
+            
+          <div class="mb-3" > 
+            <mat-label style="color:gray;">Recruitment date</mat-label>
+                 <div class="card ">  
+                  <p-calendar [(ngModel)]="date" formControlName="dtr"></p-calendar></div>
+          </div>
+         
+      </section>
+        </div>
+      <div>
+          
+       
+        </div>
+      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

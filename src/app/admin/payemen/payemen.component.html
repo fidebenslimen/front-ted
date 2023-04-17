@@ -1,0 +1,24 @@
+<div class="transactions">
+    <br><br><br>
+    <div class="title">New student List</div>
+    <div class="transaction-wrapper">
+      <div class="transaction" *ngFor="let transaction of transactions">
+        <div class="id">{{ transaction.id}}</div>
+        <div class="title">{{ transaction.title }}</div>
+        <div class="date">{{ transaction.date }}</div>
+        <div class="shop-location">
+          
+          <div class="shop">{{ transaction.field }}</div>
+        </div>
+        <div
+          class="status"
+          [ngClass]="{
+            paid: transaction.status === 'Paid',
+            unpaid: transaction.status === 'Unpaid'
+          }"
+        >
+          {{ transaction.status }}
+        </div>
+      </div>
+    </div>
+  </div>

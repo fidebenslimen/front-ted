@@ -1,0 +1,42 @@
+.main-container {
+    display: flex;
+        
+  }
+  .header{
+ width: 100%;
+ padding: 0;
+  }
+  .side-nav {
+    width: 250px;
+    min-width: 230px;
+    
+   
+    color: #fff;
+   
+    }
+.main {
+        padding: 30px;
+      }
+.container{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+ 
+}
+
+span {
+  display: inline;
+  @media only screen and (max-width: 1300px) {
+    display: none;
+  }
+}
+
+
+.nav-item:hover {
+  background-color: #545554 ;
+}
+fa-icon {
+  margin-right: 20px;
+  font-size: 22px;
+}

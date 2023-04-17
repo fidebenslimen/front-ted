@@ -25,5 +25,16 @@
       "mention": "Assez bien",
       "annee": 2020
     }
+  ],
+  "professors": [
+    {
+      "id": 1,
+      "fullname": "fida ben slimen",
+      "phonenumber": "+21650124030",
+      "departement": "IT",
+      "dtr": "2022-12-03T23:00:00.000Z",
+      "gender": "Male",
+      "email": "fida.benslimene@ihec.ucar.tn"
+    }
   ]
 }

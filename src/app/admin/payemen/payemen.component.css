@@ -1,0 +1,71 @@
+.transaction-wrapper {
+    overflow: auto;
+    height: 185px;
+  }
+  .title {
+    padding: 10px;
+    padding-bottom: 5px;
+text-align: center;
+color: #333333;
+font-size: 18px;
+font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica,
+  sans-serif;
+}
+.transaction {
+display: flex;
+align-items: center;
+padding: 5px 20px;
+border-bottom: 1px solid #f0f0f0;
+
+}
+.image {
+    width: 55px;
+   
+}
+img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+  }
+  .id {
+    padding: 3px;
+    font-size: 16px;
+    width: 10px;
+  }
+  .title {
+    padding: 5px;
+    margin-left: 1px;
+    font-size: 16px;
+    width: 190px;
+  }
+  .date {
+    padding: 10px;
+    font-size: 16px;
+    width: 90px;
+  }
+  .shop {
+    padding: 20px;
+    margin-left: 10pt;
+    font-size: 16px;
+    width: 190px;
+    
+  }
+  .location {
+    margin-top: 4px;
+    font-size: 14px;
+    color: grey;
+  }
+  .status {
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  
+}
+.paid {
+    color: #08652a;
+  }
+  .status.unpaid {
+    color: #d72f2f;;
+  }
+ 

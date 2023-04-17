@@ -1,0 +1,43 @@
+.header {
+    height: 50px;
+    width: 100%;
+    padding: 20px 40px;
+    background: rgb(254,213,27);
+background: linear-gradient(90deg, rgba(254,213,27,1) 25%, rgba(160,142,59,1) 46%, rgba(119,111,73,1) 77%, rgba(138,125,67,1) 87%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+   
+   
+  }
+  #all{
+   padding-bottom: 30px;
+   flex: 1 1 auto;
+   position: fixed;
+   overflow-y: auto;
+   z-index: 1;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+    
+  }
+  .user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #545554;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+   
+  .user {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  
+  }

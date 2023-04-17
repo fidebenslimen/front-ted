@@ -1,0 +1,16 @@
+
+.flex{
+    display: flex;
+}
+.parttwo{
+    padding: 50px;
+    padding-left: 200pt;
+}
+.head{
+    display: flex;
+justify-content: space-evenly;
+
+}
+
+  
+  

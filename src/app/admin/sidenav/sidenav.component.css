@@ -1,0 +1,66 @@
+.all{
+  flex: 0 0 auto;
+   height:100%;
+  padding-top: 50px;
+   position: fixed;
+   overflow-y: auto;
+}
+/* Customize the scrollbar for the .all class */
+.all::-webkit-scrollbar {
+  width: 5px;
+ 
+  background-color:  #FED51B;
+}
+
+.all::-webkit-scrollbar-thumb {
+  background-color: #545554;
+  border-radius: 3px;
+
+}
+
+.all::-webkit-scrollbar-track {
+  background-color:  #FED51B;
+}
+
+.all::-webkit-scrollbar-corner {
+  background-color: #f5f5f5;
+}
+
+.nav-items {
+    padding-top: 40px;
+
+        width: 250px;
+        min-width: 230px;
+        
+        background-color:#FED51B;;
+        color: #fff;
+        box-shadow: 5px 5px 5px #939393;
+        @media only screen and (max-width: 1300px) {
+            width: 100px;
+            min-width: 100px;
+        }
+        
+    
+  }
+  span {
+    display: inline;
+    @media only screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+  .nav-item {
+    padding: 25px 50px;
+    cursor: pointer;
+    @media only screen and (max-width: 1300px) {
+      padding: 25px 40px;
+    }
+    
+  }
+
+  .nav-item:hover {
+    background-color: #545554 ;
+  }
+  fa-icon {
+    margin-right: 20px;
+    font-size: 22px;
+  }
