@@ -1,0 +1,22 @@
+
+.head{
+    display: flex;
+justify-content: space-evenly;
+
+}
+.container{
+    padding-left: 180pt;
+}
+app-tete{
+    padding-top: 0pt;
+}
+.flex{
+    display: flex;
+}
+
+
+.head{
+    display: flex;
+justify-content: space-evenly;
+
+}

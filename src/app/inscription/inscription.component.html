@@ -91,6 +91,7 @@
                         <ng-template matStepLabel>Mon Curriculum Vitae (CV)</ng-template>
                         <label for="formFileDisabled" class="form-label">Télécharger votre CV (Obligatoire)</label>
 <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+
                         <div>
                             <br>
                             <br>
@@ -139,9 +140,35 @@
                       </td>
                     </tr>
                   </tbody>
+                  <br><br><br><br>
+                  <button mat-button  data-bs-toggle="modal" data-bs-target="#exampleModal0">Envoyer <i class="fa fa-check" aria-hidden="true"></i></button>
+         
                  </table>
                 
-                
+                 <div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabe0" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"><br>
+                        <h3 style="font-weight: bold;">Votre Pré-inscription est envoyée.</h3>
+                      </div>
+                      <div style="margin: 20pt;">
+                        <p> Votre candidature va bientôt être examinée par le jury.
+                          Vous recevrez une réponse à travers votre mail,<br><span style="color:blue">
+                            veuillez choisir si vous voulez entretien en ligne ou présentiel</span> </p>
+                          </div>
+                          <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="1">En ligne </mat-radio-button>
+                            <mat-radio-button value="2">présentiel</mat-radio-button>
+                          </mat-radio-group>
+                        
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button> 
+                          </div>
+                        </div>
+                      </div>
+                     
+                        </div>
+
                 <!-- Modal1-->
                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">

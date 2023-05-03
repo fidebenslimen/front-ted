@@ -1,0 +1,85 @@
+<header class=""style="background-color:#545554 ">
+    <nav class="navbar navbar-expand-lg   container">
+     <div >
+        
+            <a href="mailto:contact@ted-university.com" class="float-left"style="color:black;padding-right:10pt">
+                <i class="fa fa-envelope" aria-hidden="true"></i>contact@ted-university.com
+            </a>
+            <a href="tel:(+216) 27 294 294" class="float-left" style="color:black;">
+                <i class="fa fa-phone-square" aria-hidden="true"></i>(+216) 27 294 294
+            </a>
+        
+     </div>
+    <div style="display:flex;padding-left: 430pt; color: black;padding-top: 4pt;">
+      <ul class="navbar-nav">
+        <!-- Notification dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          <i class="fa fa-bell" aria-hidden="true"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+        <!-- Notification dropdown -->
+      </ul>
+     <div class="dropdown-center">
+      <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+       Bienvenue  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Mon compte</a></li>
+        <li><a class="dropdown-item" href="#">changer mot de passe</a></li>
+        <li><a class="dropdown-item" >Se déconnecter</a></li>
+        
+      </ul>
+    </div>
+    </div>     
+    
+    </nav>
+  </header>
+<header class="bg" style="background-color: #FED51B;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-gold container">
+      <a class="navbar-brand" href="#">TED university</a><img src="logo.png" style="height:37pt;width:60pt">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" (click)=" goToEnseignant()">Acceuil</a>
+          </li>
+          </ul>
+          </div></nav>
+          </header>
+<br><br><br>
+<div class="main">
+<mat-grid-list cols="3"   rowHeight="3:1" style="padding-left: 300pt;height:280pt;padding-top: 40pt;">
+    <mat-grid-tile id="temps">Emploi de temps</mat-grid-tile>
+    <mat-grid-tile id="appel">Fiche d'appel</mat-grid-tile>
+    <mat-grid-tile id="note">Notes et résultats</mat-grid-tile>
+    <br>
+    <mat-grid-tile id="service">Services</mat-grid-tile>
+  </mat-grid-list>
+</div>
+<br><br>
+  <app-footer></app-footer>

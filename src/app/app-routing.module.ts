@@ -13,6 +13,9 @@ import { ProfessorsComponent } from './admin/professors/professors.component';
 import { PrincipaleComponent } from './admin/principale/principale.component';
 import { StudentListComponent } from './admin/student-list/student-list.component';
 import { AdmissionsComponent } from './admin/admissions/admissions.component';
+import { CoursesComponent } from './admin/courses/courses.component';
+import { EnseignantComponent } from './enseignant/enseignant.component';
+import { DemandereclamationComponent } from './demandereclamation/demandereclamation.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'inscri', component: InscriptionComponent },
@@ -27,6 +30,9 @@ const routes: Routes = [
   {path: 'dashbords', component:PrincipaleComponent},
   {path: 'students', component:StudentListComponent},
 {path: 'admissions', component:AdmissionsComponent},
+{path: 'courses', component:CoursesComponent},
+{path: 'enseignant', component:EnseignantComponent},
+{path: 'dem-rec', component:DemandereclamationComponent},
   
 
 

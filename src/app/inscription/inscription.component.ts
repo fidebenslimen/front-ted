@@ -1,6 +1,6 @@
 import { Component,OnInit} from '@angular/core';
 import {FormBuilder, Validators,FormGroup} from '@angular/forms';
-import { MatDialog } from  '@angular/material/dialog';
+import { MatDialog,MAT_DIALOG_DATA, MatDialogRef}  from  '@angular/material/dialog';
 import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { inscriptionModel1 } from './inscription.model';
@@ -9,6 +9,7 @@ interface type {
   value: string;
   viewValue: string;
 }
+
 declare var $: any;
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

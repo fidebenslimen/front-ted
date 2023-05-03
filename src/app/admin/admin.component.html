@@ -1,5 +1,6 @@
 <div class="container">
     <div class="header">
+
       <app-tete></app-tete>
     </div>
     <div class="main-container">
@@ -7,6 +8,45 @@
             <app-sidenav></app-sidenav>
           </div>
       <div class="main">
+        <br><br><br>
+        <div class="widget-container">
+          <div class="widget green">
+            <div class="icon">
+              <fa-icon [icon]="faGraduationCap"></fa-icon>
+            </div>
+            <div class="value">
+              <div class="top">322</div>
+              <div class="bottom">Students</div>
+            </div>
+          </div>
+          <div class="widget yellow">
+            <div class="icon">
+              <fa-icon [icon]="faUserGroup"></fa-icon>
+            </div>
+            <div class="value">
+              <div class="top">100</div>
+              <div class="bottom">Professors</div>
+            </div>
+          </div>
+          <div class="widget red">
+            <div class="icon">
+              <fa-icon [icon]="faUniversity"></fa-icon>
+            </div>
+            <div class="value">
+              <div class="top">45</div>
+              <div class="bottom">Admissions</div>
+            </div>
+          </div>
+          <div class="widget blue">
+            <div class="icon">
+              <fa-icon [icon]="faChevronDown"></fa-icon>
+            </div>
+            <div class="value">
+              <div class="top">692</div>
+              <div class="bottom">Total </div>
+            </div>
+          </div>
+        </div>
         <app-principale ></app-principale>
       </div>
     </div>

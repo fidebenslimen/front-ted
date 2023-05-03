@@ -1,0 +1,18 @@
+.flex{
+    display: flex;
+}
+.parttwo{
+    padding: 50px;
+    padding-left: 200pt;
+}
+.content{
+    padding: 20pt;
+    display: inline-flex;
+
+}
+.head{
+    display: flex;
+justify-content: space-evenly;
+
+}
+

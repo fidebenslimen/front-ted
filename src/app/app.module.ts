@@ -38,13 +38,24 @@ import { ScheduleModule,RecurrenceEditorModule, DayService, WeekService, WorkWee
 import { CalenderComponent } from './admin/calender/calender.component';
 import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import { CalendarOptions } from '@fullcalendar/core';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { ProfessorsComponent } from './admin/professors/professors.component';
 import { SidenavComponent } from './admin/sidenav/sidenav.component';
-import { CalendarModule } from 'primeng/calendar';
+
 import { PayemenComponent } from './admin/payemen/payemen.component';
+import { CoursesComponent } from './admin/courses/courses.component';
+import { CommonModule } from '@angular/common';
+import { FlatpickrDefaults, FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { EnseignantComponent } from './enseignant/enseignant.component';
+import { DemandereclamationComponent } from './demandereclamation/demandereclamation.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { DataServiceService } from './etudiant/data-service.service';
+import { AvancementComponent } from './avancement/avancement.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +79,11 @@ import { PayemenComponent } from './admin/payemen/payemen.component';
     ProfessorsComponent,
     SidenavComponent,
     PayemenComponent,
+    CoursesComponent,
+    EnseignantComponent,
+    DemandereclamationComponent,
+    AvancementComponent,
+ 
  
    
   ],
@@ -82,13 +98,18 @@ import { PayemenComponent } from './admin/payemen/payemen.component';
      MatSelectModule,MatDialogModule
    ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
    ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
-   , FullCalendarModule,CalendarModule
+   , FullCalendarModule,CalendarModule,  CommonModule,FlatpickrModule,NgbModalModule,MatGridListModule,
+   MatExpansionModule,
    
+   CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+  }),
  
      
   ],
   
-  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,FlatpickrDefaults,DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

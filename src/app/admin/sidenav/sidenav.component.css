@@ -36,20 +36,15 @@
         color: #fff;
         box-shadow: 5px 5px 5px #939393;
         @media only screen and (max-width: 1300px) {
-            width: 100px;
+            width: 210px;
             min-width: 100px;
         }
         
     
   }
-  span {
-    display: inline;
-    @media only screen and (max-width: 1300px) {
-      display: none;
-    }
-  }
+ 
   .nav-item {
-    padding: 25px 50px;
+ 
     cursor: pointer;
     @media only screen and (max-width: 1300px) {
       padding: 25px 40px;

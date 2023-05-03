@@ -47,6 +47,15 @@ faDashboard = faDashboard;
     this.router.navigate(['admissions']);
   }
  
+  gotocalender(){
+    this.router.navigate(['calender']);
+  }
+  gotodep(){
+    this.router.navigate(['courses']);
+  }
+  gotodemrec(){
+    this.router.navigate(['dem-rec']);
+  }
   ngOnInit(): void {
   }
 

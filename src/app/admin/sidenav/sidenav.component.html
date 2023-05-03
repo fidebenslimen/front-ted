@@ -16,26 +16,27 @@
       <fa-icon [icon]="faFilePrescription"></fa-icon>
       <span>Inscription</span>
     </div>
-    <div class="nav-item">
+    <div class="nav-item" (click)="gotocalender()">
       <fa-icon [icon]=" faCalendarDays"></fa-icon>
       <span>Calender</span>
     </div>
-    <div class="nav-item">
+    <div class="nav-item"  (click)="gotodep()">
       <fa-icon [icon]="faBook"></fa-icon>
-      <span>Courses</span>
+      <span>Departments</span>
     </div>
     <div class="nav-item">
       <fa-icon [icon]="faChartBar"></fa-icon>
-      <span>Departments</span>
+      <span>Attendances</span>
     </div>
-    <div class="nav-item" >
+    <div class="nav-item" (click)="gotodemrec()" >
       <fa-icon [icon]="faContactBook"></fa-icon>
-      <span>Staff</span>
+      <span>Demandes et réclamations</span>
     </div>
     <div class="nav-item">
       <fa-icon [icon]=" faMoneyBills"></fa-icon>
       <span>Payements</span>
     </div>
+   
   </div>
 
 </section>

@@ -1,0 +1,46 @@
+mat-grid-tile{
+  
+    width: 50pt;
+}
+mat-grid-list{
+    justify-content: space-between;
+}
+.grid-tile-container {
+    margin-right: 40px; /* example margin */
+  }
+.main{
+    padding-left: 40pt;
+    padding-right: 40pt;
+}
+#appel{
+    background-color: rgb(117, 144, 232);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+    
+}
+#service{
+    background-color: rgb(233, 242, 102);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+    
+}
+#note{
+    background-color: rgb(200, 152, 244);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+
+}
+#temps{
+    background-color: rgb(237, 118, 198);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+
+}
