@@ -12,6 +12,7 @@ export class PayemenComponent implements OnInit {
       title: "Jens Brincker",
       date: "22/01/2023",
       field: "Executive MBA",
+      type:"Null",
       status: "Unpaid",
      
     },
@@ -20,6 +21,7 @@ export class PayemenComponent implements OnInit {
       title: "Denver Blackcode",
       date: "27/05/2023",
       field: "MASTER CYBER SECURITY",
+      type:"cheque",
       status: "Paid",
     
     },
@@ -28,7 +30,8 @@ export class PayemenComponent implements OnInit {
       title: "David Perry",
       date: "11/04/2023",
       field: "Licence Computer Science GLIS",
-      status: "Unpaid",
+      type:"Credit card",
+      status: "paid",
     
     }
   ];

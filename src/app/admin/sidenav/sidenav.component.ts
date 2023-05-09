@@ -50,11 +50,14 @@ faDashboard = faDashboard;
   gotocalender(){
     this.router.navigate(['calender']);
   }
-  gotodep(){
+  gotocour(){
     this.router.navigate(['courses']);
   }
   gotodemrec(){
     this.router.navigate(['dem-rec']);
+  }
+  gotopaymen(){
+    this.router.navigate(['payement']);
   }
   ngOnInit(): void {
   }

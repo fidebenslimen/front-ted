@@ -15,10 +15,10 @@
             <mat-form-field appearance="fill" >
               <mat-label>type*</mat-label>
               <mat-select formControlName="type">
-                <mat-option value="one">Attestation d'inscription</mat-option>
-                <mat-option value="two">Attestation de paiement</mat-option>
-                <mat-option value="three">Attestation de présence</mat-option>
-                <mat-option value="four">Demandes Stages et PFE</mat-option>
+                <mat-option value="Attestation d'inscription">Attestation d'inscription</mat-option>
+                <mat-option value="Attestation de paiement">Attestation de paiement</mat-option>
+                <mat-option value="Attestation de présence">Attestation de présence</mat-option>
+                <mat-option value="Demandes Stages et PFE">Demandes Stages et PFE</mat-option>
               </mat-select>
             </mat-form-field><br>
           
@@ -33,7 +33,7 @@
             </mat-form-field><br>
           
             <div style="padding-left: 500pt;">
-              <button type="button" class="btn btn-dark" (click)="sendData()"><i class="fa fa-floppy-o"
+              <button type="button" class="btn btn-dark"  (click)="postCandidatDetails()" ><i class="fa fa-floppy-o"
                   aria-hidden="true"></i>Enregistrer</button>
             </div>
           </form>

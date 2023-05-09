@@ -22,6 +22,11 @@ export class HeaderComponent {
 
     
   }
+  goToprofile(){
+    this.router.navigate(['profile']);
+
+    
+  }
   goToLog(){
     this.router.navigate(['login']);
   }

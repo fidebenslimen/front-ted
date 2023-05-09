@@ -1,59 +1,35 @@
 
-<header class=""style="background-color:#545554 ">
-    <nav class="navbar navbar-expand-lg   container">
+<header class=""style="background-color:#545554 " >
+    <nav class="navbar  container" style="height:33px;padding-top: 0%;">
      <div >
         
             <a href="mailto:contact@ted-university.com" class="float-left"style="color:black;padding-right:10pt">
                 <i class="fa fa-envelope" aria-hidden="true"></i>contact@ted-university.com
             </a>
-            <a href="tel:(+216) 27 294 294" class="float-left" style="color:black;">
+            <a href="tel:(+216) 27 294 294"  style="color:black;">
                 <i class="fa fa-phone-square" aria-hidden="true"></i>(+216) 27 294 294
             </a>
         
      </div>
     <div style="display:flex;padding-left: 430pt; color: black;padding-top: 4pt;">
-      <ul class="navbar-nav">
-        <!-- Notification dropdown -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-          <i class="fa fa-bell" aria-hidden="true"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <li>
-              <a class="dropdown-item" href="#">Some news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Another news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
-        </li>
-        <!-- Notification dropdown -->
-      </ul>
-     <div class="dropdown-center">
+
+
+     
+
+
+
+     <div class="dropdown-center"  style="padding-left: 100px;">
       <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
        Bienvenue  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Mon compte</a></li>
+        <li><a class="dropdown-item" (click)="goToprofile()">Mon compte</a></li>
         <li><a class="dropdown-item" href="#">changer mot de passe</a></li>
         <li><a class="dropdown-item" (click)=" goToLog()">Se déconnecter</a></li>
         
       </ul>
     </div>
+    
     </div>     
     
     </nav>

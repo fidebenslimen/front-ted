@@ -16,6 +16,10 @@ import { AdmissionsComponent } from './admin/admissions/admissions.component';
 import { CoursesComponent } from './admin/courses/courses.component';
 import { EnseignantComponent } from './enseignant/enseignant.component';
 import { DemandereclamationComponent } from './demandereclamation/demandereclamation.component';
+import { AvancementComponent } from './avancement/avancement.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReclamaComponent } from './enseignant/reclama/reclama.component';
+import { PayemenComponent } from './admin/payemen/payemen.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'inscri', component: InscriptionComponent },
@@ -33,6 +37,11 @@ const routes: Routes = [
 {path: 'courses', component:CoursesComponent},
 {path: 'enseignant', component:EnseignantComponent},
 {path: 'dem-rec', component:DemandereclamationComponent},
+{path: 'avancement', component:AvancementComponent},
+{path: 'profile', component:ProfileComponent},
+{path: 'en/reclamation', component:ReclamaComponent},
+{path: 'payement', component:PayemenComponent},
+
   
 
 

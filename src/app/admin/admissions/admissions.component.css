@@ -41,3 +41,17 @@ justify-content: space-evenly;
     margin: 0 10px; /* adjust margin as needed */
   }
   
+  label{
+    color:rgb(144, 143, 143);
+    font-size: large;
+    font-weight: lighter;
+}
+#view:hover{
+    font-size :20px;
+    color:green;
+}
+#img{
+    height:100pt;
+    width:100pt;
+    border-radius: 50%;
+}

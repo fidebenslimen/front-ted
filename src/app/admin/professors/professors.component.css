@@ -12,5 +12,9 @@ justify-content: space-evenly;
 
 }
 
+#date {
+    position: fixed;
+    z-index: 1!important;
+  }
   
   

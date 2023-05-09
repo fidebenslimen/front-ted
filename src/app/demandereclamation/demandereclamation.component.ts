@@ -4,6 +4,13 @@ import {AfterViewInit, Component, ViewChild,OnInit } from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { DataServiceService } from '../etudiant/data-service.service';
+import { RecserService } from '../etudiant/reclamations/recser.service';
+import {
+ 
+  faListOl,
+  faCalendarCheck,
+  faTasks
+} from '@fortawesome/free-solid-svg-icons';
 export interface Demande{
   name: string;
   id: number;
@@ -28,6 +35,7 @@ const ELEMENT_DATA: Demande[] = [
   
 
 ];
+
 const DATA: Reclamation[] = [
   {id:1,name:'ross',mail:'rossgeller@hotmail.com',date:'17/01/2023',type:'Reclamation'},
   {id:2,name:'rachel',mail:'rachelgreen@hotmail.com',date:'17/01/2023',type:'Reclamation'},
@@ -44,39 +52,33 @@ const DATA: Reclamation[] = [
   templateUrl: './demandereclamation.component.html',
   styleUrls: ['./demandereclamation.component.css']
 })
-export class DemandereclamationComponent implements AfterViewInit {
+export class DemandereclamationComponent implements OnInit {
   receivedData: any[] = [];
+  reclamationData: any[]=[];
   panelOpenState = false;
   displayedColumns: string[] = ['id', 'name', 'mail', 'date','type','action'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   dataS = new MatTableDataSource(DATA);
-  constructor(private _liveAnnouncer: LiveAnnouncer,private dataService: DataServiceService) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer,private dataService: DataServiceService,private RecserService: RecserService) {}
+  faListOl=faListOl;
+  faTasks= faTasks;
+  faCalendarCheck= faCalendarCheck;
 
   @ViewChild(MatSort) sort!: MatSort;
+ 
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    
-    // Subscribe to the data service to receive the data
-    
-    this.dataService.getData().subscribe(data => {
-      this.receivedData = data; // Assign the data to the receivedData array
+  ngOnInit() {
+   
+    this.dataService.getActivite().subscribe(data => {
+      this.receivedData = data; // Update the receivedData property with the data from the shared service
+    });
+    this.RecserService.getActivite().subscribe(rec => {
+      this.reclamationData = rec; // Update the receivedData property with the data from the shared service
     });
   }
-  
 
 
 
   /** Announce the change in sort state for assistive technology. */
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
+ 
 }

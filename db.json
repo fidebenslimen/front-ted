@@ -24,6 +24,14 @@
       "etablissement": "GG",
       "mention": "Assez bien",
       "annee": 2020
+    },
+    {
+      "id": 4,
+      "type": "",
+      "specialite": "math",
+      "etablissement": "lycée",
+      "mention": "Assez bien",
+      "annee": "2020"
     }
   ],
   "professors": [
@@ -35,6 +43,54 @@
       "dtr": "2022-12-03T23:00:00.000Z",
       "gender": "Male",
       "email": "fida.benslimene@ihec.ucar.tn"
+    }
+  ],
+  "demandes": [
+    {
+      "id": 1,
+      "type": "Attestation d'inscription",
+      "email": "fida.benslimene@ihec.ucar.tn",
+      "objet": "demandes d'attestation",
+      "message": "bonjour,je voudrais mon attestation d'inscription",
+      "date": "2023-05-08"
+    },
+    {
+      "id": 2,
+      "type": "Attestation de présence",
+      "objet": "fffffff",
+      "message": "gggggg",
+      "date": "2023-05-08"
+    },
+    {
+      "id": 3,
+      "type": "Attestation de présence",
+      "objet": "HHH",
+      "message": "NNN",
+      "date": "2023-05-09"
+    }
+  ],
+  "reclamations": [
+    {
+      "id": 1,
+      "type": "reclamation note",
+      "email": "fida.benslimene@ihec.ucar.tn",
+      "objet": "Reclamation Note",
+      "message": "bonjour,je voudrais savoir si vous pouvez reconsider..",
+      "date": "2023-05-08"
+    },
+    {
+      "id": 2,
+      "type": "Réclamation Emploi du temps",
+      "objet": "ggggggg",
+      "message": "",
+      "date": "2023-05-08"
+    },
+    {
+      "id": 3,
+      "type": "Réclamation support du cours",
+      "objet": "vvvvvvvvvvvvv",
+      "message": "",
+      "date": "2023-05-08"
     }
   ]
 }

@@ -2,18 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { professorsModel } from './professors.model';
 import {FormBuilder, Validators,FormGroup} from '@angular/forms';
 import { ProfessorsService } from './professors.service';
+
+
 @Component({
   selector: 'app-professors',
   templateUrl: './professors.component.html',
   styleUrls: ['./professors.component.css']
 })
 export class ProfessorsComponent implements OnInit {
+  selectedDate!: Date;
   date!: Date;
   ProfessorsForm!:FormGroup;
   ProfessorsModel1Obj :professorsModel= new professorsModel();
   activiteData !:any;
   constructor(private _formBuilder: FormBuilder,private api:ProfessorsService ) { }
-
+ 
   ngOnInit(): void {
     this.ProfessorsForm = this._formBuilder.group({
       fullname:[''],

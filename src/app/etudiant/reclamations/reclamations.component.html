@@ -8,30 +8,30 @@
                 <div style="font-size: 30pt;color: gold;"><i class="fa fa-university" aria-hidden="true"></i></div></nav>
                 <hr>
         <div class="card-body">
-    <form >
+    <form [formGroup]="myForm">
         <mat-form-field appearance="fill">
             <mat-label>type*</mat-label>
-            <mat-select >
-              <mat-option value="one">Réclamation Note</mat-option>
-              <mat-option value="two">Réclamation Absence</mat-option>
-              <mat-option value="two">Réclamation Emploi du temps</mat-option>
-              <mat-option value="two">Réclamation support du cours</mat-option>
+            <mat-select formControlName="type">
+              <mat-option value="Réclamation Note">Réclamation Note</mat-option>
+              <mat-option value="Réclamation Absence">Réclamation Absence</mat-option>
+              <mat-option value="Réclamation Emploi du temps">Réclamation Emploi du temps</mat-option>
+              <mat-option value="Réclamation support du cours">Réclamation support du cours</mat-option>
             </mat-select>
           </mat-form-field><br>
         
         <mat-form-field appearance="fill">
             <mat-label>Objet</mat-label>
-            <input matInput>
+            <input matInput formControlName="objet">
           </mat-form-field><br>
           
           <mat-form-field appearance="fill">
-            <mat-label>Message</mat-label>
-            <textarea matInput></textarea>
+            <mat-label >Message</mat-label>
+            <textarea matInput formControlName="message"></textarea>
           </mat-form-field><br>
             <br>
           <div style="padding-left: 500pt;">
        
-          <button type="button" class="btn btn-dark" ><i class="fa fa-floppy-o" aria-hidden="true"></i>Enregistrer</button>
+          <button type="button" class="btn btn-dark" (click)="postCandidatDetails()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Enregistrer</button>
         </div>
     </form>
     

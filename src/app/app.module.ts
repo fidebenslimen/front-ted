@@ -54,8 +54,10 @@ import { DemandereclamationComponent } from './demandereclamation/demandereclama
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DataServiceService } from './etudiant/data-service.service';
 import { AvancementComponent } from './avancement/avancement.component';
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProfileComponent } from './profile/profile.component';
+import { ReclamaComponent } from './enseignant/reclama/reclama.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +85,8 @@ import { AvancementComponent } from './avancement/avancement.component';
     EnseignantComponent,
     DemandereclamationComponent,
     AvancementComponent,
+    ProfileComponent,
+    ReclamaComponent,
  
  
    
@@ -99,8 +103,8 @@ import { AvancementComponent } from './avancement/avancement.component';
    ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
    ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
    , FullCalendarModule,CalendarModule,  CommonModule,FlatpickrModule,NgbModalModule,MatGridListModule,
-   MatExpansionModule,
-   
+   MatExpansionModule,MatProgressSpinnerModule,
+   MatPaginatorModule,
    CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,

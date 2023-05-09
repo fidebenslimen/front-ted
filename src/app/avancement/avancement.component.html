@@ -1,1 +1,73 @@
-<p>avancement works!</p>
+<div class="bg-image"></div>
+<br><br>
+<section class="vh-100" id="main">
+   
+      <div class="row d-flex justify-content-center align-items-center h-100">
+      
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body ">
+              <div class="row justify-content-center">
+                <div style="display: flex;" >
+              <div class="container" style="width:100;margin: 0pt;padding: 0pt;">
+               
+            
+                <img id="student" src="assets\inscription-removebg-preview.png" alt="Student Image" class="student-image my-animation">
+
+
+
+            </div>
+
+              <div class="container" style="width:900">
+              
+                  <mat-stepper [linear]="isLinear" #stepper>
+                    <mat-step [stepControl]="firstFormGroup">
+                      <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Mon dossier <i class="fa fa-book" aria-hidden="true"></i></ng-template>
+                   
+                        <label>Nom et prénom :</label><br>
+                        <label>Date de naissance :</label><br>
+                          <label>Mail :</label><br>
+                       <hr style="color:brown;height: 10px;" ><br>
+                          <label > Mes formations :</label>
+                     
+                        <div>
+                        
+                          <button mat-button  matStepperNext class="btn btn-dark">Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" label="TED vérifie mon dossier">
+                    
+                     
+                     <h3 style="color:red">Votre dossier va être bientôt vérifié par l'université <i class="fa fa-spinner" aria-hidden="true"></i></h3>
+     <br><br><br>
+                        <div>
+                          <button mat-button matStepperPrevious class="btn btn-dark">Back</button>
+                          <button mat-button matStepperNext class="btn btn-dark">Next</button>
+                         
+                        </div>
+                    
+                    </mat-step>
+                    <mat-step>
+                      <ng-template matStepLabel>Réponse</ng-template>
+                      <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                        Vous trouverez ici la réponse finale de l'université ainsi si vous êtes accepté pour faire l'entretien.</p>
+                      <div>
+                        <button mat-button matStepperPrevious class="btn btn-dark">Back</button>
+                        
+                      </div>
+                    </mat-step>
+                  </mat-stepper>
+                  
+        </div>
+            </div>
+
+
+              
+              </div>
+          </div>
+     
+      </div>
+    </div>
+  </section>
+<app-footer></app-footer>

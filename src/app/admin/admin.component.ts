@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import {
-  faLocation,
-  faShop,
-  faBoxes,
-  faMoneyBill,
+ 
   faGraduationCap,
   faUserGroup,
   faUniversity,

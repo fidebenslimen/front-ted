@@ -20,6 +20,12 @@ mat-grid-list{
     font-size: large;
     
 }
+#appel:hover{
+    opacity: 0.5;
+}
+#temps:hover{
+    opacity: 0.5;
+}
 #service{
     background-color: rgb(233, 242, 102);
     font-weight: bold;
@@ -28,6 +34,10 @@ mat-grid-list{
     font-size: large;
     
 }
+#service:hover{
+    opacity: 0.5;
+}
+
 #note{
     background-color: rgb(200, 152, 244);
     font-weight: bold;

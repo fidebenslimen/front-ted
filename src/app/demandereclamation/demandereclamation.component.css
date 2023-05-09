@@ -20,3 +20,102 @@
   justify-content: space-evenly;
   
   }
+  .widget-container {
+    display: flex;
+    align-items: space-between;
+  }
+  
+  .widget {
+    width: 100px;
+    height: 105px;
+    background-color: #fff;
+    color: #535151;
+    border-radius: 5px;
+    border-color: #535151;
+    margin: 10px;
+    box-shadow: 5px 5px 5px #939393;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .widget.green {
+    color:blue;
+  }
+  
+  .widget.yellow {
+   color:orangered;
+  }
+  
+  .widget.red {
+color:green;
+  }
+  
+  
+  
+  @media only screen and (max-width: 1600px) {
+    .widget {
+      width: 60px;
+    }
+  }
+  
+  @media only screen and (max-width: 1500px) {
+    .widget {
+      width: 75px;
+    }
+  }
+  
+  @media only screen and (max-width: 1400px) {
+    .widget {
+      width: 200px;
+    }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .widget {
+      width: 125px;
+    }
+  }
+  
+  .widget .icon {
+    width: 100px;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .widget .icon {
+      font-size: 35px;
+    }
+  }
+  
+  .widget .value {
+    text-align: center;
+    width: 175px;
+  }
+  
+  .widget .value .top {
+    font-size: 20px;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .widget .value .top {
+      font-size: 26px;
+    }
+  }
+  
+  .widget .value .bottom {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .widget .value .bottom {
+      font-size: 16px;
+    }
+  }
+
+
+ 
+  
+ 

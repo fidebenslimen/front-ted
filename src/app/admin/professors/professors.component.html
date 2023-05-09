@@ -105,9 +105,15 @@
             </div>
             
           <div class="mb-3" > 
-            <mat-label style="color:gray;">Recruitment date</mat-label>
-                 <div class="card ">  
-                  <p-calendar [(ngModel)]="date" formControlName="dtr"></p-calendar></div>
+            <mat-form-field appearance="fill">
+              <mat-label>Date de naissance</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="thirdCtrl">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+         
+              <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker >
+           
+            </mat-form-field>
           </div>
          
       </section>

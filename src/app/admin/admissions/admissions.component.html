@@ -46,25 +46,46 @@
       </ul>
     </div>
   </div>
-  <table class="table align-middle  bg-white" style="width:400px">
-    <thead class="bg-light" style="color: rgb(85, 85, 84)">
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Field</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center"></div></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr></tbody></table>
+        <table class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+            <tr>
+              <th>Name</th>
+              <th>Class</th>
+             
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                      src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                      alt=""
+                      style="width: 45px; height: 45px"
+                      class="rounded-circle"
+                      />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td >
+                <p class="fw-normal mb-1">Software engineer</p>
+                <p class="text-muted mb-0">IT department</p>
+              </td>
+              
+              <td>
+              
+                  <div style="color:blue;"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view"></i></div>
+                
+       
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
         </div>
         <div class="vertical-line"></div>
       <div>
@@ -97,25 +118,46 @@
     </ul>
   </div>
 </div>
-<table class="table align-middle  bg-white" style="width:400px">
-  <thead class="bg-light" style="color: rgb(85, 85, 84)">
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
     <tr>
-      <th>#</th>
       <th>Name</th>
-      <th>Field</th>
-      <th>Email</th>
+      <th>Class</th>
+     
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <div class="d-flex align-items-center"></div></td>
-        <td></td>
-        <td></td>
-  <td></td>
-  <td></td>
-      </tr></tbody></table>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">John Doe</p>
+            <p class="text-muted mb-0">john.doe@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td >
+        <p class="fw-normal mb-1">Software engineer</p>
+        <p class="text-muted mb-0">IT department</p>
+      </td>
+      
+      <td>
+      
+          <div style="color:blue;"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view"></i></div>
+        
+
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
       </div>
 </section>
 
@@ -124,3 +166,31 @@
 
 
 </nav>
+ <!--modal-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" >Informations</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section class="two" style="display: flex;justify-content: space-evenly;">
+        <img src="\assets\male.jpg" id="img">
+        <div class="col-lg-9 col-md-12">
+
+    
+        <label>Nom et prénom :</label><br>
+        <label>Date de naissance :</label><br>
+          <label>Mail :</label><br>
+       <hr style="color:brown;height: 10px;" ><br>
+          <label > Mes formations :</label>
+        </div>
+      </section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-tertiary" data-bs-dismiss="modal"  style="color:red">Reject <i class="fa fa-times" aria-hidden="true"></i></button>
+        <button type="button"class="btn btn-tertiary" style="color:green" >Accept  <i class="fa fa-check" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
