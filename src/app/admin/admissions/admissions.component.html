@@ -14,16 +14,22 @@
 <p style="color:gray;font-size: 9pt;">TED university</p>
 </div>
 </section>
-<div id="chart"><div  class="chart-container" [chart]="chart"></div></div>
-<section class="List" style="display:flex;justify-content: space-between;" >
-  <div>
-
-
-    <div class="Licence" style="display:flex"><h2 style="padding-right: 30px;">Candidats List Licence</h2> <div class="dropdown">
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      
+      <mat-panel-title>
+      Master Cyber Security
+      </mat-panel-title>
+    
+    </mat-expansion-panel-header>
+    
+        <div class="dropdown" style="padding-left: 800px;padding-bottom: 10pt;">
       <a class="btn btn-light  btn-sm  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filter
       </a>
-    
+ 
       <ul class="dropdown-menu">
         <li><div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -45,121 +51,93 @@
         </div></li>
       </ul>
     </div>
-  </div>
-        <table class="table align-middle mb-0 bg-white">
-          <thead class="bg-light">
-            <tr>
-              <th>Name</th>
-              <th>Class</th>
-             
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                      src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                      alt=""
-                      style="width: 45px; height: 45px"
-                      class="rounded-circle"
-                      />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                    <p class="text-muted mb-0">john.doe@gmail.com</p>
-                  </div>
-                </div>
-              </td>
-              <td >
-                <p class="fw-normal mb-1">Software engineer</p>
-                <p class="text-muted mb-0">IT department</p>
-              </td>
-              
-              <td>
-              
-                  <div style="color:blue;"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view"></i></div>
-                
-       
-              </td>
-            </tr>
-           
-          </tbody>
-        </table>
-        </div>
-        <div class="vertical-line"></div>
-      <div>
-
-
-  <div class="master" style="display:flex"><h2 style="padding-right: 30px;">Candidats List Master</h2> <div class="dropdown">
-    <a class="btn btn-light  btn-sm  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Filter
-    </a>
-  
-    <ul class="dropdown-menu">
-      <li><div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Mention trés bien
-        </label>
-      </div></li>
-      <li><div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Mention Bien
-        </label>
-      </div></li>
-      <li><div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-        Certificats
-        </label>
-      </div></li>
-    </ul>
-  </div>
-</div>
-<table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light">
-    <tr>
-      <th>Name</th>
-      <th>Class</th>
-     
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td >
-        <p class="fw-normal mb-1">Software engineer</p>
-        <p class="text-muted mb-0">IT department</p>
-      </td>
-      
-      <td>
-      
-          <div style="color:blue;"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view"></i></div>
-        
-
-      </td>
-    </tr>
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+         
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                  src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                  alt=""
+                  style="width: 45px; height: 45px"
+                  class="rounded-circle"
+                  />
+              <div class="ms-3">
+                <p class="fw-bold mb-1">John Doe</p>
+                <p class="text-muted mb-0">john.doe@gmail.com</p>
+              </div>
+            </div>
+          </td>
+          <td >
+            <p class="fw-normal mb-1">Software engineer</p>
+            <p class="text-muted mb-0">IT department</p>
+          </td>
+          
+          <td>
+          
+              <div style="color:blue;"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view"></i></div>
+            
    
-  </tbody>
-</table>
-      </div>
-</section>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      
+      <mat-panel-title>
+      Master Cloud Computing et virtualisation.
+      </mat-panel-title>
+    
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      
+      <mat-panel-title>
+     Licence Big data et analyse de données 
+      </mat-panel-title>
+    
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Licence Computing science GLI
+      </mat-panel-title>
+    
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+      Executive MBA
+      </mat-panel-title>
+     
+      
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+      </mat-expansion-panel>
+</mat-accordion>
+
+
 
 </div>
 
@@ -184,13 +162,40 @@
         <label>Date de naissance :</label><br>
           <label>Mail :</label><br>
        <hr style="color:brown;height: 10px;" ><br>
-          <label > Mes formations :</label>
+          <label > CV :</label><br>
+          <label > Liste de ses formations :</label><br><br><br>
         </div>
       </section>
       <div class="modal-footer">
-        <button type="button" class="btn btn-tertiary" data-bs-dismiss="modal"  style="color:red">Reject <i class="fa fa-times" aria-hidden="true"></i></button>
-        <button type="button"class="btn btn-tertiary" style="color:green" >Accept  <i class="fa fa-check" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-tertiary"  style="color:red" data-bs-toggle="modal" data-bs-target="#exampleModal2" >Reject <i class="fa fa-times" aria-hidden="true"></i></button>
+        <button type="button"class="btn btn-tertiary" style="color:rgb(220, 184, 6)">Interview  <i class="fa fa-calendar-check-o" aria-hidden="true"></i></button>
+        <button type="button"class="btn btn-tertiary" style="color:green">Accept  <i class="fa fa-check" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
+</div></div>
+<!--modal2-->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="text-align:center;">
+        <i class="fa fa-exclamation-circle" aria-hidden="true" style="color:orange;font-size: 100px;"></i>
+     
+        <h1>Are you sure ?</h1>
+        <p>You will not be able to recover this admission!!!</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-tertiary"  style="color:grey" data-bs-dismiss="modal" >Cancel </button>
+        <button type="button"class="btn btn-tertiary" style="color:rgb(229, 7, 7)">yes,delete it !</button>
+      </div>
+    
+  </div>
+</div>
 </div>

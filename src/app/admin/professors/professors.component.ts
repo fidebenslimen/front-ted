@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { professorsModel } from './professors.model';
-import {FormBuilder, Validators,FormGroup} from '@angular/forms';
+import {FormBuilder,FormGroup} from '@angular/forms';
 import { ProfessorsService } from './professors.service';
 
 
@@ -29,6 +29,7 @@ export class ProfessorsComponent implements OnInit {
 
     })
     this.getAllActivite();
+    
   }
   
   postCandidatDetails(){

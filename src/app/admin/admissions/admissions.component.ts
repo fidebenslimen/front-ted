@@ -6,6 +6,7 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./admissions.component.css']
 })
 export class AdmissionsComponent implements OnInit {
+  panelOpenState = false;
   chart = new Chart({
     chart: {
       type: 'line',

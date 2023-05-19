@@ -2,11 +2,12 @@ import {
   Component,
   ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef,
+  TemplateRef,OnInit
 } from '@angular/core';
 import {
   startOfDay,
   endOfDay,
+  endOfMonth,
   subDays,
   addDays,
   isSameDay,
@@ -39,14 +40,12 @@ const colors: Record<string, EventColor> = {
 };
 
 @Component({
-  selector: 'mwl-demo-component',
+  selector: 'app-calenderetudiant',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./calender.component.css'],
-
-  templateUrl: './calender.component.html',
+  templateUrl: './calenderetudiant.component.html',
+  styleUrls: ['./calenderetudiant.component.css']
 })
-export class CalenderComponent  {
-  selectedClass!: string;
+export class CalenderetudiantComponent implements OnInit {
   @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -85,9 +84,9 @@ export class CalenderComponent  {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       class: 'A 3 day event',
-      cours:'Licence',
-      groupe:'gggg',
-      color: {...colors['red'] },
+      groupe:'',
+      cours:'',
+      color: { ...colors['red'] },
       actions: this.actions,
       allDay: true,
       resizable: {
@@ -97,6 +96,29 @@ export class CalenderComponent  {
       draggable: true,
     },
     
+    {
+      start: subDays(endOfMonth(new Date()), 3),
+      end: addDays(endOfMonth(new Date()), 3),
+      class: 'A long event that spans 2 months',
+      groupe:'',
+      cours:'',
+      color: { ...colors['blue'] },
+      allDay: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()), 2),
+      end: addHours(new Date(), 2),
+    class: 'A draggable and resizable event',
+    groupe:'',
+    cours:'',
+      color: { ...colors['yellow'] },
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
   ];
 
   activeDayIsOpen: boolean = true;
@@ -145,11 +167,11 @@ export class CalenderComponent  {
       ...this.events,
       {
         class: 'New event',
+        groupe:'vvvv',
+        cours:'fffff',
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
-        cours:'gggg',
-        groupe:'which class',
-        color:colors['red'],
+        color: colors['red'],
         draggable: true,
         resizable: {
           beforeStart: true,
@@ -170,29 +192,7 @@ export class CalenderComponent  {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
- 
-  firstSelectOptions = ['MASTER CYBER SECURITY', 'Master Cloud computing et virtualisatio', 'Licence Big Data et Analyse de Données','Licence Computer Science GLI','Executive MBA'];
-  cours = ['Value A', 'Value B', 'Value C'];
-  selectedFirstValue!: string;
-  selectedSecondValue!: string;
-
-  onFirstSelectChange() {
-    switch(this.selectedFirstValue) {
-      case 'MASTER CYBER SECURITY':
-        this.cours= ['PHP Development', 'Account Management'];
-        break;
-      case 'Master Cloud computing et virtualisatio':
-        this.cours = ['Angular Programmer', 'Value C'];
-        break;
-      case 'Licence Big Data et Analyse de Données':
-        this.cours = ['Value A', 'Value C'];
-        break;
-      case 'Licence Computer Science GLI':
-        this.cours = ['Value A', 'Value C'];
-        break;
-      default:
-        this.cours = ['', '', ''];
-        break;
-    }
+  ngOnInit(): void {
+      
   }
 }

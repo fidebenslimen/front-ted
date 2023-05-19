@@ -58,6 +58,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProfileComponent } from './profile/profile.component';
 import { ReclamaComponent } from './enseignant/reclama/reclama.component';
+import {MatTreeModule} from '@angular/material/tree';
+import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calenderetudiant.component';
+import { EvenmentComponent } from './admin/evenment/evenment.component';
+
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +93,9 @@ import { ReclamaComponent } from './enseignant/reclama/reclama.component';
     AvancementComponent,
     ProfileComponent,
     ReclamaComponent,
+    CalenderetudiantComponent,
+    EvenmentComponent,
+    
  
  
    
@@ -103,8 +112,8 @@ import { ReclamaComponent } from './enseignant/reclama/reclama.component';
    ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
    ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
    , FullCalendarModule,CalendarModule,  CommonModule,FlatpickrModule,NgbModalModule,MatGridListModule,
-   MatExpansionModule,MatProgressSpinnerModule,
-   MatPaginatorModule,
+   MatExpansionModule,MatProgressSpinnerModule,MatTreeModule,
+   MatPaginatorModule,ToastrModule.forRoot(),
    CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,

@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,9 +15,10 @@ public user={
 };
   
 ngOnInit(): void {
-    
+ 
 }
-  constructor(private router: Router){}
+
+constructor(private router: Router,private toastr: ToastrService){}
 formSubmit() {
   if (this.user.identifiant=='' || this.user.password=='') {
     alert("Veuillez entrer votre identifiant et votre mdp !!!");
@@ -24,4 +27,6 @@ formSubmit() {
   this.router.navigate(['/etudiant']);
 }
 
+
 }
+ 

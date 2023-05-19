@@ -20,6 +20,7 @@ import { AvancementComponent } from './avancement/avancement.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReclamaComponent } from './enseignant/reclama/reclama.component';
 import { PayemenComponent } from './admin/payemen/payemen.component';
+import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calenderetudiant.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'inscri', component: InscriptionComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
 {path: 'profile', component:ProfileComponent},
 {path: 'en/reclamation', component:ReclamaComponent},
 {path: 'payement', component:PayemenComponent},
+{path: 'etudiant/emploi', component:CalenderetudiantComponent},
 
   
 

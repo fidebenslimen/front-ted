@@ -21,22 +21,22 @@
 </div>
 </section>
 <section class="content">
-
+  
 <div class="card" style="width: 18rem;">
 
   <img src="assets\phpcourse.jpg" class="card-img-top">
     <div class="card-body">
       <h1 class="card-title">PHP Development Course</h1>
-      <h5 class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore reiciendis itaque qui tempore error perferendis quidem, esse ab, molestias quos odio accusamus earum ratione ullam alias quaerat minus! Incidunt.</h5>
-    
+      <h5 class="card-text"><span style="color:rgb(12, 12, 169);font-size: large;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Professor : <br> Level :</span></h5>
+      <button  type="button" class="btn btn-dark btn-rounded">View more </button>
     </div>
   </div>
   <div class="card" style="width: 18rem;">
     <img src="\assets\management.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h1 class="card-title">Account Management Course</h1>
-      <h5 class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore reiciendis itaque qui tempore error perferendis quidem, esse ab, molestias quos odio accusamus earum ratione ullam alias quaerat minus! Incidunt.</h5>
-    
+      <h5 class="card-text"><span style="color:rgb(12, 12, 169);font-size: large;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Professor : <br>Level :</span></h5>
+      <button  type="button" class="btn btn-dark btn-rounded">View more </button>
     </div>
   </div>
 
@@ -44,12 +44,93 @@
     <img src="\assets\angularcourse.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h1 class="card-title">Angular Programmer Course</h1>
-      <h5 class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore reiciendis itaque qui tempore error perferendis quidem, esse ab, molestias quos odio accusamus earum ratione ullam alias quaerat minus! Incidunt.</h5>
+      <h5 class="card-text"><span style="color:rgb(12, 12, 169);font-size: large;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Professor : <br>Class:</span></h5>
+      <button  type="button" class="btn btn-dark btn-rounded"  >View more </button>
     
     </div>
   </div>
 
+ 
 
 </section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let course of coursesData">
+      <div class="card">
+        <img src="{{ course.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h1 class="card-title">{{ course.name }}</h1>
+          <h5 class="card-text">
+            <span style="color:rgb(12, 12, 169);font-size: large;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+              Professor: <span class="value">{{ course.professor }}</span>
+              <br>Class: <span class="value">{{ course.class }}</span>
+            </span>
+          </h5>
+          <div style="display: flex;justify-content: space-between;">
+          <button type="button" class="btn btn-dark btn-rounded">Edit</button>
+          <i class="fa fa-trash-o" aria-hidden="true" style="font-size: 30pt; color:red"  (click)="deleteActivite(course)"></i>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 </nav>
+<!-- Modal1-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" >Informations</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="coursesForm" >
+         
+          
+          <div>
+            <section  style="display: flex;justify-content: space-evenly;">
+              <div class="mb-3">
+              <label class="form-label" for="customFile">photo upload</label>
+              <input type="file" class="form-control" id="customFile" type="file" accept="image/*" (change)="onImageChange($event)" formControlName="image"/>
+            </div>
+            <div class="mb-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Cours name</mat-label>
+                <input matInput   required formControlName="name"> 
+                </mat-form-field>
+            </div>
+           
+           
+          </section>
+          <section  style="display: flex;justify-content: space-evenly;">
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Class</mat-label>
+              <input matInput   required formControlName="class"> 
+              </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Professor</mat-label>
+              <input matInput   required formControlName="professor"> 
+              </mat-form-field>
+          </div></section>
+       
+        </div>
+      <div>
+          
+       
+        </div>
+      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

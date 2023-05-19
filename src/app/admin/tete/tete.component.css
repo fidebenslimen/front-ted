@@ -2,9 +2,9 @@
     height: 50px;
     width: 100%;
     padding: 20px 40px;
-    background: rgb(254,213,27);
-background: linear-gradient(90deg, rgba(254,213,27,1) 25%, rgba(160,142,59,1) 46%, rgba(119,111,73,1) 77%, rgba(138,125,67,1) 87%);
-    color: #fff;
+    background: rgb(33,33,33);
+    background: linear-gradient(90deg, rgba(33,33,33,1) 30%, rgb(255, 255, 255) 61%, rgb(255, 255, 255) 75%, rgb(255, 255, 255) 78%);
+    color:#545554;
     display: flex;
     justify-content: space-between;
    
@@ -20,6 +20,7 @@ background: linear-gradient(90deg, rgba(254,213,27,1) 25%, rgba(160,142,59,1) 46
   .logo {
     font-weight: bold;
     font-size: 20px;
+    color: rgba(254,213,27,1);
     
   }
   .user-image {
@@ -28,11 +29,13 @@ background: linear-gradient(90deg, rgba(254,213,27,1) 25%, rgba(160,142,59,1) 46
     border-radius: 50%;
     border: 2px solid #fff;
     background-color: #545554;
+    
     margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    color:#fff;
   }
    
   .user {

@@ -20,6 +20,7 @@
 <button type="button" class="btn btn-light"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</button>
 </div>
 </section>
+
 <table class="table mt">
     <thead>
       <tr >
@@ -103,13 +104,14 @@
                 <input matInput   required formControlName="departement"> 
                 </mat-form-field>
             </div>
-            
+            <p-calendar [(ngModel)]="date" ></p-calendar>
           <div class="mb-3" > 
             <mat-form-field appearance="fill">
               <mat-label>Date de naissance</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="thirdCtrl">
+              <input matInput [matDatepicker]="picker" formControlName="dtr">
               <mat-hint>MM/DD/YYYY</mat-hint>
-         
+             
+
               <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
               <mat-datepicker #picker ></mat-datepicker >
            

@@ -27,6 +27,7 @@
 .widget-container {
   display: flex;
   align-items: space-between;
+  padding-left: 100pt;
 }
 
 .widget {

@@ -31,7 +31,16 @@ export class PayemenComponent implements OnInit {
       date: "11/04/2023",
       field: "Licence Computer Science GLIS",
       type:"Credit card",
-      status: "paid",
+      status: "Paid",
+    
+    },
+    {
+      id: 4,
+      title: "Jennifer Perry",
+      date: "12/05/2023",
+      field: "Licence Computer Science GLIS",
+      type:"preuve",
+      status: "en cours",
     
     }
   ];

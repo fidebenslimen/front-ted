@@ -11,6 +11,12 @@ import {
   faCalendarCheck,
   faTasks
 } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
+
+
+
+
+ 
 export interface Demande{
   name: string;
   id: number;
@@ -59,7 +65,7 @@ export class DemandereclamationComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'mail', 'date','type','action'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   dataS = new MatTableDataSource(DATA);
-  constructor(private _liveAnnouncer: LiveAnnouncer,private dataService: DataServiceService,private RecserService: RecserService) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer,private dataService: DataServiceService,private RecserService: RecserService,private toastr: ToastrService) {}
   faListOl=faListOl;
   faTasks= faTasks;
   faCalendarCheck= faCalendarCheck;
@@ -77,6 +83,9 @@ export class DemandereclamationComponent implements OnInit {
     });
   }
 
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
 
 
   /** Announce the change in sort state for assistive technology. */
