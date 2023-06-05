@@ -21,8 +21,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReclamaComponent } from './enseignant/reclama/reclama.component';
 import { PayemenComponent } from './admin/payemen/payemen.component';
 import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calenderetudiant.component';
+import { EvemenmentComponent } from './admin/evemenment/evemenment.component';
+import { TestInscriComponent } from './test-inscri/test-inscri.component';
+import { MdpComponent } from './etudiant/mdp/mdp.component';
+
 const routes: Routes = [
-  {path: 'login', component: LoginComponent },
+  {path: 'login', component: LoginComponent , data: { returnUrl: window.location.pathname }},
   {path: 'inscri', component: InscriptionComponent },
   {path: 'etudiant', component: EtudiantComponent  },
   {path: 'etudiant/paiement', component: PaiementComponent  },
@@ -43,8 +47,11 @@ const routes: Routes = [
 {path: 'en/reclamation', component:ReclamaComponent},
 {path: 'payement', component:PayemenComponent},
 {path: 'etudiant/emploi', component:CalenderetudiantComponent},
+{path: 'evenment', component:EvemenmentComponent},
+{path: 'test', component:TestInscriComponent},
+{path: 'mdpoublié', component:MdpComponent},
 
-  
+
 
 
 ];

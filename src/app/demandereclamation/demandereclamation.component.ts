@@ -65,7 +65,7 @@ export class DemandereclamationComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'mail', 'date','type','action'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   dataS = new MatTableDataSource(DATA);
-  constructor(private _liveAnnouncer: LiveAnnouncer,private dataService: DataServiceService,private RecserService: RecserService,private toastr: ToastrService) {}
+  constructor(private dataService: DataServiceService,private RecserService: RecserService,private toastr: ToastrService) {}
   faListOl=faListOl;
   faTasks= faTasks;
   faCalendarCheck= faCalendarCheck;

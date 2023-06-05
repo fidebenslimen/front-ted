@@ -1,26 +1,8 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-} from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  isSameDay,
-  isSameMonth,
-  addHours,
-} from 'date-fns';
+import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+import { startOfDay, endOfDay, subDays, addDays, isSameDay, isSameMonth, addHours } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
+import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
 
 const colors: Record<string, EventColor> = {
@@ -42,22 +24,18 @@ const colors: Record<string, EventColor> = {
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./calender.component.css'],
-
   templateUrl: './calender.component.html',
 })
-export class CalenderComponent  {
+export class CalenderComponent {
   selectedClass!: string;
   @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
-
   CalendarView = CalendarView;
-
   viewDate: Date = new Date();
-
   modalData!: {
     action: string;
-    event: CalendarEvent;
+    event: CalendarEvent<{ course: string }>;
   };
 
   actions: CalendarEventAction[] = [
@@ -80,14 +58,12 @@ export class CalenderComponent  {
 
   refresh = new Subject<void>();
 
-  events: CalendarEvent[] = [
+  events: CalendarEvent<{ course: string }>[] = [
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
-      class: 'A 3 day event',
-      cours:'Licence',
-      groupe:'gggg',
-      color: {...colors['red'] },
+      title: 'A 3 day event - Course A',
+      color: colors['red'],
       actions: this.actions,
       allDay: true,
       resizable: {
@@ -95,8 +71,10 @@ export class CalenderComponent  {
         afterEnd: true,
       },
       draggable: true,
+      meta: {
+        course: 'Course A',
+      },
     },
-    
   ];
 
   activeDayIsOpen: boolean = true;
@@ -105,10 +83,7 @@ export class CalenderComponent  {
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
+      if ((isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0) {
         this.activeDayIsOpen = false;
       } else {
         this.activeDayIsOpen = true;
@@ -117,11 +92,7 @@ export class CalenderComponent  {
     }
   }
 
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd,
-  }: CalendarEventTimesChangedEvent): void {
+  eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
     this.events = this.events.map((iEvent) => {
       if (iEvent === event) {
         return {
@@ -135,7 +106,7 @@ export class CalenderComponent  {
     this.handleEvent('Dropped or resized', event);
   }
 
-  handleEvent(action: string, event: CalendarEvent): void {
+  handleEvent(action: string, event: CalendarEvent<{ course: string }>): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
@@ -144,42 +115,49 @@ export class CalenderComponent  {
     this.events = [
       ...this.events,
       {
-        class: 'New event',
+        title: 'New event',
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
-        cours:'gggg',
-        groupe:'which class',
-        color:colors['red'],
+        color: colors['red'],
         draggable: true,
         resizable: {
           beforeStart: true,
           afterEnd: true,
         },
+        meta: {
+          course: 'Course B',
+        },
       },
     ];
   }
 
-  deleteEvent(eventToDelete: CalendarEvent) {
+  deleteEvent(eventToDelete: CalendarEvent): void {
     this.events = this.events.filter((event) => event !== eventToDelete);
   }
 
-  setView(view: CalendarView) {
+  setView(view: CalendarView): void {
     this.view = view;
   }
 
-  closeOpenMonthViewDay() {
+  closeOpenMonthViewDay(): void {
     this.activeDayIsOpen = false;
   }
- 
-  firstSelectOptions = ['MASTER CYBER SECURITY', 'Master Cloud computing et virtualisatio', 'Licence Big Data et Analyse de Données','Licence Computer Science GLI','Executive MBA'];
+
+  firstSelectOptions = [
+    'MASTER CYBER SECURITY',
+    'Master Cloud computing et virtualisatio',
+    'Licence Big Data et Analyse de Données',
+    'Licence Computer Science GLI',
+    'Executive MBA',
+  ];
   cours = ['Value A', 'Value B', 'Value C'];
   selectedFirstValue!: string;
   selectedSecondValue!: string;
 
-  onFirstSelectChange() {
-    switch(this.selectedFirstValue) {
+  onFirstSelectChange(): void {
+    switch (this.selectedFirstValue) {
       case 'MASTER CYBER SECURITY':
-        this.cours= ['PHP Development', 'Account Management'];
+        this.cours = ['PHP Development', 'Account Management'];
         break;
       case 'Master Cloud computing et virtualisatio':
         this.cours = ['Angular Programmer', 'Value C'];

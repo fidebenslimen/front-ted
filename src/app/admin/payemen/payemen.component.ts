@@ -40,7 +40,7 @@ export class PayemenComponent implements OnInit {
       date: "12/05/2023",
       field: "Licence Computer Science GLIS",
       type:"preuve",
-      status: "en cours",
+      status: "Pending",
     
     }
   ];

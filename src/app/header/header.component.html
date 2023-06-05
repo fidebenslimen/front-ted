@@ -18,11 +18,11 @@
 
 
 
-     <div class="dropdown-center"  style="padding-left: 100px;">
+     <div class="dropdown-center"  style="padding-right: 20px;">
       <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
        Bienvenue  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </a>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu"   >
         <li><a class="dropdown-item" (click)="goToprofile()">Mon compte</a></li>
         <li><a class="dropdown-item" href="#">changer mot de passe</a></li>
         <li><a class="dropdown-item" (click)=" goToLog()">Se déconnecter</a></li>
@@ -34,20 +34,20 @@
     
     </nav>
   </header>
-<header class="bg" style="background-color: #FED51B;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-gold container">
-      <a class="navbar-brand" href="#">TED university</a><img src="logo.png" style="height:37pt;width:60pt">
+<header class="bg" style="background-color: #FED51B;color: black;">
+    <nav class="navbar navbar-expand-lg bg-gold container">
+      <a class="navbar-brand">TED university</a><img src="logo.png" style="height:37pt;width:60pt">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" (click)=" goToEtudiant()">Acceuil</a>
+          <li class="nav-item" >
+            <a class="nav-link" (click)=" goToEtudiant()"><i class="fa fa-home" aria-hidden="true"></i>  Acceuil</a>
           </li>
          <li><div class="dropdown-center">
             <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Mon espace 
+              <i class="fa fa-bars" aria-hidden="true"></i> Mon espace 
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Emploi du temps</a></li>
@@ -58,7 +58,7 @@
           </div></li> 
           <li><div class="dropdown-center">
             <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Services
+              <i class="fa fa-diamond" aria-hidden="true"></i> Services
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" (click)="goToDemandes()">Mes demandes</a></li>
@@ -66,7 +66,7 @@
             </ul>
           </div></li> 
           <li class="nav-item">
-            <a class="nav-link" (click)=" goToPaiement()">Paiement</a>
+            <a class="nav-link" (click)=" goToPaiement()"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Paiement</a>
           </li>
           
         </ul>

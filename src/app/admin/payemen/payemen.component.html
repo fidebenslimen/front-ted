@@ -45,7 +45,8 @@
           <td   class="status"
           [ngClass]="{
             paid: transaction.status === 'Paid',
-            unpaid: transaction.status === 'Unpaid'
+            unpaid: transaction.status === 'Unpaid',
+            pending: transaction.status === 'Pending'
           }">{{ transaction.status }}</td>                   
        
         </tr>

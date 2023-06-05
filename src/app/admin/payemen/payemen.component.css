@@ -69,6 +69,10 @@ img {
   .status.unpaid {
     color: #d72f2f;;
   }
+  .status.pending {
+    color: #ebb120;;
+  }
+
  
 .flex{
   display: flex;

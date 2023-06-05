@@ -46,6 +46,11 @@ justify-content: space-evenly;
     font-size: large;
     font-weight: lighter;
 }
+h4{
+    color:rgb(0, 0, 0);
+    font-size:medium;
+    font-weight: lighter;
+}
 #view:hover{
     font-size :20px;
     color:green;
@@ -55,3 +60,9 @@ justify-content: space-evenly;
     width:100pt;
     border-radius: 50%;
 }
+.custom-toast-center-middle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

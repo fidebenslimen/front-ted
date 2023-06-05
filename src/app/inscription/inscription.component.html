@@ -21,27 +21,29 @@
                 <h2 class="title text-white text-align" style="text-align: center;">Pré-inscription</h2><hr>
             </div>
             <div class="card-body">
-
-        
+             <form (ngSubmit)="onSubmit()" >
                 <mat-stepper linear #stepper>
                     <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                    
+              
+                      
                     <form [formGroup]="firstFormGroup">
+                    
                         <ng-template matStepLabel>Mes informations personnelles</ng-template>
-                        
-                        <section class="un">
+                      <section class="un">
                         <div>
-                           
+                        
                         <mat-form-field appearance="fill">
                         <mat-label>Nom</mat-label>
-                        <input matInput formControlName="firstCtrl" placeholder="Nom" required>
+                        <input matInput formControlName="firstCtrl" placeholder="Nom" required [(ngModel)]="firstname">
                         </mat-form-field><br>
                         <mat-form-field appearance="fill">
                             <mat-label>Prénom</mat-label>
-                            <input matInput formControlName="secondCtrl" placeholder="Prénom" required>
+                            <input matInput formControlName="secondCtrl" placeholder="Prénom" required [(ngModel)]="lastname">
                             </mat-form-field><br>
                           
                                 <mat-label style="color:rgb(144, 143, 143);font-size: large;font-weight: lighter;">Sexe</mat-label><br>
-                                <mat-radio-group aria-label="Select an option">
+                                <mat-radio-group aria-label="Select an option" [(ngModel)]="sexe">
                                     <mat-radio-button value="1">Féminin</mat-radio-button>
                                     <mat-radio-button value="2">Masculin</mat-radio-button>
                                   </mat-radio-group>
@@ -52,14 +54,14 @@
                                 <input matInput [matDatepicker]="picker" formControlName="thirdCtrl">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
+                                <mat-datepicker #picker ></mat-datepicker>
                               </mat-form-field>
                             </div>
                                 <div>
                                   <mat-form-field class="example-full-width">
                                     <mat-label>Email</mat-label>
                                     <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                                           placeholder="Ex. pat@example.com" >
+                                           placeholder="Ex. pat@example.com" [(ngModel)]="mail">
                                     <mat-hint>Email valide!</mat-hint>
                                     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                       Entrer un mail valide
@@ -70,21 +72,28 @@
                                   </mat-form-field><br>
                                         <mat-form-field appearance="fill">
                                             <mat-label>Téléphone</mat-label>
-                                            <input matInput formControlName="fourthCtrl" placeholder="Last name, First name" required>
+                                            <input matInput formControlName="fourthCtrl" placeholder="Last name, First name" required [(ngModel)]="PhoneNumber">
                                             </mat-form-field><br>
                                             <mat-form-field appearance="fill">
                                                 <mat-label>Adresse</mat-label>
                                                 <input matInput formControlName="fiveCtrl" placeholder="Last name, First name" required>
                                                 </mat-form-field>
-                                           
+                                      
+                                     
+                                        
                                 </div>
                            
                             </section>
                         <div>
+                          <mat-label for="typeDemande"  required  style="color:rgb(144, 143, 143);font-size: large;font-weight: lighter;">Choisir le parcours :</mat-label>
+                          <select name="typeDemande" [(ngModel)]="cursus" id="cursus">
+                             <option *ngFor="let c of  cursuus" [ngValue]="c" id="cur">{{c}}</option>
+                          </select><br>
                         <button mat-button matStepperNext >Suivant<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
                         
                     </form>
+                
                     </mat-step>
                     <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
                     <form [formGroup]="secondFormGroup">
@@ -141,7 +150,7 @@
                     </tr>
                   </tbody>
                   <br><br><br><br>
-                  <button mat-button  data-bs-toggle="modal" data-bs-target="#exampleModal0">Envoyer <i class="fa fa-check" aria-hidden="true"></i></button>
+                  <button mat-button  data-bs-toggle="modal" data-bs-target="#exampleModal0" >Envoyer <i class="fa fa-check" aria-hidden="true"></i></button>
          
                  </table>
                 
@@ -156,20 +165,48 @@
                           Vous recevrez une réponse à travers votre mail,<br><span style="color:blue">
                             veuillez choisir si vous voulez entretien en ligne ou présentiel</span> </p>
                           </div>
-                          <mat-radio-group aria-label="Select an option">
-                            <mat-radio-button value="1">En ligne </mat-radio-button>
-                            <mat-radio-button value="2">présentiel</mat-radio-button>
-                          </mat-radio-group>
-                        
+                          <label for="typeDemande"  required>Type de demande:</label>
+      <select name="typeDemande" [(ngModel)]="typeDemande">
+          <option *ngFor="let c of typedemande" [ngValue]="c">{{c}}</option>
+      </select>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button> 
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Ok</button> 
                           </div>
                         </div>
                       </div>
                      
                         </div>
+                      </mat-step>
+                  
+                    </mat-stepper>
+                    </form>
+                    <br><br>                
+                
+                
+                      
+                   
+             
+                
+</div>
+
+</div>
+
+</div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<app-footer></app-footer>
 
                 <!-- Modal1-->
+                <div class="modal-dialog custom-modal">
                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -203,12 +240,7 @@
                           </div>
                         </div>
                       <div>
-                          <div class="mb-3">
-                            <mat-form-field appearance="fill">
-                              <mat-label>Année scolaire</mat-label>
-                              <input matInput  min="1997" max="2070"  required formControlName="annee"> 
-                              </mat-form-field>
-                          </div>
+                         
                           <div class="mb-3">
                             <mat-form-field appearance="fill">
                               <mat-label>Mention</mat-label>
@@ -222,11 +254,25 @@
                               </mat-form-field><br>
                           </div>
                         </div>
+                       
                       </section>
                           <div class="mb-3">
                           <label for="formFileDisabled" class="form-label">justificatif</label>
 <input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
-</div>
+</div> <div class="mb-3">
+  <div class="input-group">
+    <input
+      class="form-control"
+      placeholder="yyyy-mm-dd"
+      name="dp"
+      [(ngModel)]="model"
+      ngbDatepicker
+      #d="ngbDatepicker"
+    />
+    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+  </div>
+  
+                          </div>
                         </form>
                       </div>
                       <div class="modal-footer">
@@ -236,7 +282,7 @@
                     </div>
                   </div>
                 </div>
-                
+              </div>
                    <!-- Modal2 -->
                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -309,7 +355,49 @@
                                     </div>
                                     <div class="mb-3">
                                       <label for="exampleInputEmail1" class="form-label">Année d'entrée et de sortie</label>
-                               <input type="string"  class="form-control form-control-sm" id="exampleInputYear1" min="1997-01-01" max="2070-01-01" placeholder="YYYY-MM-DD" formControlName="annee">
+                                      
+                                      <div class="col-12">
+                                        <div class="dp-hidden position-absolute">
+                                          <div class="input-group">
+                                            <input
+                                              name="datepicker"
+                                              class="form-control"
+                                              ngbDatepicker
+                                              #datepicker="ngbDatepicker"
+                                              [autoClose]="'outside'"
+                                              (dateSelect)="onDateSelection($event)"
+                                              [displayMonths]="2"
+                                              [dayTemplate]="t"
+                                              outsideDays="hidden"
+                                              [startDate]="fromDate!"
+                                              tabindex="-1"
+                                            />
+                                            <ng-template #t let-date let-focused="focused">
+                                              <span
+                                                class="custom-day"
+                                                [class.focused]="focused"
+                                                [class.range]="isRange(date)"
+                                                [class.faded]="isHovered(date) || isInside(date)"
+                                                (mouseenter)="hoveredDate = date"
+                                                (mouseleave)="hoveredDate = null"
+                                              >
+                                                {{ date.day }}
+                                              </span>
+                                            </ng-template>
+                                          </div>
+                                        </div>
+                                        <div class="input-group">
+                                          <input
+                                            #dpFromDate
+                                            class="form-control"
+                                            placeholder="yyyy-mm-dd"
+                                            name="dpFromDate"
+                                            [value]="formatter.format(fromDate)"
+                                            (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                                          />
+                                          <button class="btn btn-outline-secondary bi bi-calendar3" (click)="datepicker.toggle()" type="button"></button>
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="mb-3">
                                       <label for="exampleInputEmail1" class="form-label" >Nom de l'entreprise</label>
@@ -343,31 +431,4 @@
                     
                    
                      
-<br><br>                
-                
-                
-                  
-                    </mat-step>
-                </mat-stepper>
-                
-</div>
-
-</div>
-
-</div>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<app-footer></app-footer>
-
-
-
 

@@ -1,11 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EvenementService } from '../services/evenement.service';
 @Component({
   selector: 'app-etudiant',
   templateUrl: './etudiant.component.html',
   styleUrls: ['./etudiant.component.css']
 })
-export class EtudiantComponent {
+export class EtudiantComponent implements OnInit{
   name = 'Angular';
+  EventsData: any[] = [];
   imageObject = [{
       image: 'assets/slide1.jpg',
       thumbImage: 'assets/slide1.jpg',
@@ -25,4 +27,18 @@ export class EtudiantComponent {
       image: 'assets/slide5.jpg',
       thumbImage: 'assets/slide5.jpg'
   }];
+  events: string[] = [
+    'Event 1',
+    'Event 2',
+    'Event 3'
+  ];
+  constructor(private eventService: EvenementService ){}
+  ngOnInit() {
+   
+    this.eventService.getActivite().subscribe(data => {
+      this. EventsData = data; // Update the receivedData property with the data from the shared service
+    });
+   
+  }
+
 }

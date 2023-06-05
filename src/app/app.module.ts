@@ -41,7 +41,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProfessorsComponent } from './admin/professors/professors.component';
 import { SidenavComponent } from './admin/sidenav/sidenav.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PayemenComponent } from './admin/payemen/payemen.component';
 import { CoursesComponent } from './admin/courses/courses.component';
 import { CommonModule } from '@angular/common';
@@ -60,9 +60,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReclamaComponent } from './enseignant/reclama/reclama.component';
 import {MatTreeModule} from '@angular/material/tree';
 import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calenderetudiant.component';
-import { EvenmentComponent } from './admin/evenment/evenment.component';
+
 
 import { ToastrModule } from 'ngx-toastr';
+import { EvemenmentComponent } from './admin/evemenment/evemenment.component';
+import { ContactComponent } from './contact/contact.component';
+import { MdpComponent } from './etudiant/mdp/mdp.component';
+import { TestInscriComponent } from './test-inscri/test-inscri.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import { ToastrModule } from 'ngx-toastr';
     ProfileComponent,
     ReclamaComponent,
     CalenderetudiantComponent,
-    EvenmentComponent,
+    EvemenmentComponent,
+    ContactComponent,
+    MdpComponent,
+    TestInscriComponent,
+   
     
  
  
@@ -112,8 +120,10 @@ import { ToastrModule } from 'ngx-toastr';
    ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
    ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
    , FullCalendarModule,CalendarModule,  CommonModule,FlatpickrModule,NgbModalModule,MatGridListModule,
-   MatExpansionModule,MatProgressSpinnerModule,MatTreeModule,
-   MatPaginatorModule,ToastrModule.forRoot(),
+   MatExpansionModule,MatProgressSpinnerModule,MatTreeModule,NgbModule,
+   MatPaginatorModule,ToastrModule.forRoot(
+    
+   ),
    CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,

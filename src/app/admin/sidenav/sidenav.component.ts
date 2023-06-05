@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
 import {
   faDashboard,
   faUser,
   faUserGraduate,
   faMailBulk,
+  faChevronUp,
   faMoneyBills,
+  faChevronDown,
   faChartBar,
   faContactBook,
   faFilePrescription,
@@ -28,7 +28,8 @@ faDashboard = faDashboard;
   faFilePrescription=faFilePrescription;
   faContactBook = faContactBook;
   faBook = faBook;
- 
+  faChevronUp=faChevronUp;
+  faChevronDown=faChevronDown;
   
   constructor(private router: Router) {
  
@@ -56,12 +57,18 @@ faDashboard = faDashboard;
   gotodemrec(){
     this.router.navigate(['dem-rec']);
   }
+  gotoeven(){
+    this.router.navigate(['evenment']);}
   gotopaymen(){
     this.router.navigate(['payement']);
   }
   ngOnInit(): void {
   }
+  panelOpenState = false;
 
- 
+  isAdmissionsPanelOpen = false;
 
+  toggleAdmissionsPanel() {
+    this.isAdmissionsPanelOpen = !this.isAdmissionsPanelOpen;
+  }
 }

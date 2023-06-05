@@ -40,6 +40,7 @@
     "angular-highcharts": "^15.0.1",
     "angular2-chartjs": "^0.5.1",
     "angularx-flatpickr": "^7.2.0",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.2.1",
     "data": "^0.6.1",

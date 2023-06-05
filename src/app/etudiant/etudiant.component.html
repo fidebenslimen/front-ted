@@ -1,6 +1,7 @@
 <app-header></app-header>
 <br>
-<div style="width: 840px; height: 570px; text-align:center;margin:0; padding-left:30pt;">
+<div style="display: flex; justify-content: center;">
+  <div style="width: 840px; height: 570px; text-align: center; margin: 0; padding-left: 30px;">
     <ng-image-slider #nav
       [images]="imageObject"
       [infinite]="false"
@@ -8,4 +9,40 @@
       [imageSize]="{width: '100%', height: 400}"
       slideImage="1"></ng-image-slider>
   </div>
+  <div style="width: 400px; background-color: #fff; padding: 20px; margin-left: 30px;border-color: gray;border-radius: 10%;">
+    <div class="card text-black" style="border-radius: 25px;">
+      <div class="card-body ">
+        <div class="row justify-content-center">
+         
+    <h2 style="text-align: center;text-decoration: underline ;
+    color:rgb(77, 76, 76);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> <i class="fa fa-info-circle" aria-hidden="true" style="color:red"></i>       Important Events 
+    </h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th ></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let data of EventsData">
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{data.title}}</p>
+            <p class="text-muted mb-0">{{data.descr}}</p>
+          </div>
+          <td>{{data.start}}</td>
+          <td>{{data.end}}</td>
+        </tr>
+        
+        </tbody>
+        </table>
+    </div></div></div>
+
+  </div>
+  
+  
+</div>
+
 <app-footer></app-footer>
+

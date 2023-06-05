@@ -1,0 +1,34 @@
+
+.carousel-container {
+    position: relative;
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .indicator.active {
+    background-color: #333;
+  }
+  
+  .carousel-content {
+    height: 150px; /* Adjust the height as needed */
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .carousel-item {
+    margin-bottom: 10px;
+  }
+  

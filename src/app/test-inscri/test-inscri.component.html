@@ -1,0 +1,249 @@
+
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="typeDemande"  required>Type de demande:</label>
+      <select name="typeDemande" [(ngModel)]="typeDemande">
+          <option *ngFor="let c of typedemande" [ngValue]="c">{{c}}</option>
+      </select>
+    </div>
+    <div>
+    
+    <div>
+      <label for="Cursus"  required>Cursus:</label>
+      <select name="cursus" [(ngModel)]="cursus">
+          <option *ngFor="let d of cursuus" [ngValue]="d">{{d}}</option>
+      </select>
+    </div>
+    >
+    <div>
+      <label for="nomParent">Nom parent:</label>
+      <input type="text" name="nomParent" [(ngModel)]="firstname"required>
+</div>
+ <div>
+      <label for="prenomParent">Prénom parent:</label>
+      <input type="text" name="prenomParent" [(ngModel)]="lastname" required>
+    </div>
+    <div>
+      <label for="mailParent">Email parent:</label>
+      <input type="email" name="mailParent" [(ngModel)]="mail" required>
+    </div>
+    <div>
+      <label for="telParent">Téléphone parent:</label>
+      <input type="tel" name="telParent" [(ngModel)]="PhoneNumber" required>
+    </div>
+    <button type="submit">Create ✔️</button>
+
+</div>
+</form>
+
+<mat-stepper  #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form >
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name"  required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <form >
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput  placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+
+<br>
+-------------------------------------------------------------------------------------------------------------
+
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+  
+
+    
+  <form >
+  
+      <ng-template matStepLabel>Mes informations personnelles</ng-template>
+    <section class="un">
+      <div>
+      
+      <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" required [(ngModel)]="firstname">
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input matInput  placeholder="Prénom" required [(ngModel)]="lastname">
+          </mat-form-field><br>
+        
+              <mat-label style="color:rgb(144, 143, 143);font-size: large;font-weight: lighter;">Sexe</mat-label><br>
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="sexe">
+                  <mat-radio-button value="1">Féminin</mat-radio-button>
+                  <mat-radio-button value="2">Masculin</mat-radio-button>
+                </mat-radio-group>
+                
+             <br>
+             <mat-form-field appearance="fill">
+              <mat-label>Date de naissance</mat-label>
+              <input matInput [matDatepicker]="picker" >
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field>
+          </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput [formControl]="emailFormControl" 
+                         placeholder="Ex. pat@example.com" [(ngModel)]="mail">
+                  <mat-hint>Email valide!</mat-hint>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Entrer un mail valide
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email est<strong> Obligatoire</strong>
+                  </mat-error>
+                </mat-form-field><br>
+                      <mat-form-field appearance="fill">
+                          <mat-label>Téléphone</mat-label>
+                          <input matInput placeholder="Last name, First name" required [(ngModel)]="PhoneNumber">
+                          </mat-form-field><br>
+                          <mat-form-field appearance="fill">
+                              <mat-label>Adresse</mat-label>
+                              <input matInput  placeholder="Last name, First name" required>
+                              </mat-form-field>
+                    
+                   
+                      
+              </div>
+         
+          </section>
+      <div>
+        <mat-label for="typeDemande"  required  style="color:rgb(144, 143, 143);font-size: large;font-weight: lighter;">Choisir le parcours :</mat-label>
+        <select name="typeDemande" [(ngModel)]="cursus" id="cursus">
+           <option *ngFor="let c of  cursuus" [ngValue]="c" id="cur">{{c}}</option>
+        </select><br>
+      <button mat-button matStepperNext >Suivant<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      
+  </form>
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+  <form >
+      <ng-template matStepLabel>Mon Curriculum Vitae (CV)</ng-template>
+      <label for="formFileDisabled" class="form-label">Télécharger votre CV (Obligatoire)</label>
+<input class="form-control" type="file" id="formFileDisabled" style="width: 200pt"  />
+
+      <div>
+          <br>
+          <br>
+      <button mat-button matStepperPrevious><i class="fa fa-chevron-left" aria-hidden="true"></i>Précédent</button>
+      <button mat-button matStepperNext>Suivant<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+  </form>
+  </mat-step>
+  <mat-step>
+  <ng-template matStepLabel>Mon panier de formations</ng-template>
+  <p style="color:red">Choisir votre activité pour l'ajouter à votre cursus.</p>
+
+  <button type="button"  style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253); " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+   Baccalauréat
+ </button>
+ <button type="button" name="buttonClicked" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+   Études supérieures
+ </button>
+ <button type="button" style="background-color: rgb(252, 252, 252);color: black;border-color: rgb(254, 253, 253);" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+  Expérience professionnelle
+ </button>
+
+ <br>
+  <p style="color:red">Votre parcours doit comporter au moins 1 activité et toutes vos activités doivent être approuvées par au moins un justificatif.</p>
+
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabe0" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header"><br>
+      <h3 style="font-weight: bold;">Votre Pré-inscription est envoyée.</h3>
+    </div>
+    <div style="margin: 20pt;">
+      <p> Votre candidature va bientôt être examinée par le jury.
+        Vous recevrez une réponse à travers votre mail,<br><span style="color:blue">
+          veuillez choisir si vous voulez entretien en ligne ou présentiel</span> </p>
+        </div>
+        <label for="typeDemande"  required>Type de demande:</label>
+<select name="typeDemande" [(ngModel)]="typeDemande">
+<option *ngFor="let c of typedemande" [ngValue]="c">{{c}}</option>
+</select>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Ok</button> 
+        </div>
+      </div>
+    </div>
+   
+      </div>
+    </mat-step>
+
+  </mat-stepper>
+
+
+
+
+<br>
+--------------------------------------------------------------------------------------------------------
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date d'admission</th>
+      <th>Type de demande</th>
+      <th>Diplôme</th>
+      <th>Niveau</th>
+      <th>Cursus</th>
+      <th>CIN</th>
+      <th>Nom parent</th>
+      <th>Prénom parent</th>
+      <th>Email parent</th>
+      <th>Téléphone parent</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let admission of DemandeAdmission">
+      <td>{{ admission.idAdmission }}</td>
+      <td>{{ admission.dateAdmission }}</td>
+      <td>{{ admission.typeDemande }}</td>
+      <td>{{ admission.firstname }}</td>
+      <td>{{ admission.lastname }}</td>
+      <td>{{ admission.cursus }}</td>
+      
+      <td>{{ admission.mail }}</td>
+  
+      <td>
+        <button class="modifier" >Modify 🔁</button>
+        <button class="supprimer" >Delete 🗑️</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

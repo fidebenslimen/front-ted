@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { professorsModel } from './professors.model';
 import {FormBuilder,FormGroup} from '@angular/forms';
 import { ProfessorsService } from './professors.service';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ProfessorsComponent implements OnInit {
   ProfessorsModel1Obj :professorsModel= new professorsModel();
   activiteData !:any;
   constructor(private _formBuilder: FormBuilder,private api:ProfessorsService ) { }
- 
+  model!: NgbDateStruct;
   ngOnInit(): void {
     this.ProfessorsForm = this._formBuilder.group({
       fullname:[''],

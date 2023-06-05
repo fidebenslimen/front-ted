@@ -11,32 +11,34 @@
             
               
                 <div class="card-body  text-black" style="align-items: center;width: 100pt;">
-                   <form (ngSubmit)="formSubmit()">
+                   <form #form="ngForm">
                     <br>
                     <h5 class=" mb-3 pb-3" style="letter-spacing: 1px; color: aliceblue;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: medium;">Veuillez saisir votre login et mot de passe</h5>
   <hr>
                     <div class=" form-outline mb-4" style="display: flex;padding-right: 10pt;">
                      <nav style="padding-right: 20pt;"> <i class="fa fa-user" aria-hidden="true" style="color:aliceblue;font-size: 31pt ;"></i></nav>
-                     <input [(ngModel)]="user.identifiant" name="identifiant" type="text" id="Identifiant" class="form-control form-control-lg" placeholder="Identifiant" />
+                     <input for="username" [(ngModel)]="username" name="username" type="text" id="Identifiant" class="form-control form-control-lg" placeholder="Identifiant" />
+                  
                     
                     </div>
-  
+                    <p style="color:red;font-size: 10pt;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" id="error-message"></p>
+
                     <div class="form-outline mb-4"  style="display: flex;padding-right: 10pt;">
                       <nav style="padding-right: 20pt;">  <i class="fa fa-lock" aria-hidden="true" style="color:aliceblue;font-size: 31pt ;"></i></nav>
-                      <input [(ngModel)]="user.password"  name="password" type="password" id="mdp" class="form-control form-control-lg" placeholder="Mot de passe"/>
+                      <input for="password" [(ngModel)]="password"  name="password" type="password"  class="form-control form-control-lg" placeholder="Mot de passe"/>
                    
                     </div>
                    
   <div style="display: flex;justify-content:center">
                     <div class="" style="padding-right: 20pt;">
-                      <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="formSubmit()" style="height:45px" >Connexion</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="onSubmit(form)" style="height:45px" >Se connecter </button>
                     </div>
                     <button class="btn btn-dark btn-lg btn-block" type="button" routerLink="/inscri" style="height:45px">Pré-inscription</button>
                     
         </div>
         <hr>
      
-                    <button class="small " style="color: aliceblue;">  <i class="fas fa-user-alt"></i>Mot de passe oublié?</button>
+                    <a class="small " style="color: aliceblue;">  <i class="fas fa-user-alt"></i>Mot de passe oublié?</a>
                     <div class="" style="color:aliceblue;font-size: 10pt;">
                       <hr>
                      

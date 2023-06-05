@@ -149,72 +149,75 @@
       </thead>
   
       <tbody>
-        <tr *ngFor="let event of events">
-          <td >
-            <select  style="width: 150px;border-color: rgb(122, 121, 121);" 
-            class="btn dropdown-toggle" id="first-select"   [(ngModel)]="event.class"
-            (keyup)="refresh.next()" [(ngModel)]="selectedFirstValue" (change)="onFirstSelectChange()">
-              <option *ngFor="let option of firstSelectOptions" [value]="option">{{ option }}</option>
-            </select>
-          </td>
-          <td>
-            <select id="second-select" type="text" style="border-color: rgb(122, 121, 121);"
-            class="btn dropdown-toggle"  [(ngModel)]="selectedSecondValue">
-              <option *ngFor="let option of cours" [value]="option">{{ option }}</option>
-            </select>
-            
-          </td>
-          <td>
-        
-            <select id="second-select" type="text"
-            class="btn dropdown-toggle"  style="border-color: rgb(122, 121, 121);">
-            <option value="G1">G1</option>
-            <option value="G2">G2</option>
-            </select>
-          </td>
-          <td>
-            <input
-              type="color"
-              [(ngModel)]="event?.color!.primary"
-              (change)="refresh.next()"
-            />
-         
-          <td>
-            <input
-              class="form-control"
-              type="text"
-              mwlFlatpickr
-              [(ngModel)]="event.start"
-              (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
-              dateFormat="Y-m-dTH:i"
-              altFormat="F j, Y H:i"
-              placeholder="Not set"
-            />
-          </td>
-          <td>
-            <input
-              class="form-control"
-              type="text"
-              mwlFlatpickr
-              [(ngModel)]="event.end"
-              (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
-              dateFormat="Y-m-dTH:i"
-              altFormat="F j, Y H:i"
-              placeholder="Not set"
-            />
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteEvent(event)">
-              Delete
-            </button>
-          </td>
-        </tr>
+
+
+<!-- Inside the <tbody> section -->
+<tr *ngFor="let event of events">
+  <td>
+    <select style="width: 150px; border-color: rgb(122, 121, 121);"
+            class="btn dropdown-toggle"
+            id="first-select"
+            [(ngModel)]="event.title"
+            (keyup)="refresh.next()"
+            [(ngModel)]="selectedFirstValue"
+            (change)="onFirstSelectChange()">
+      <option *ngFor="let option of firstSelectOptions" [value]="option">{{ option }}</option>
+    </select>
+  </td>
+  <td>
+    <select id="second-select"
+            type="text"
+            style="border-color: rgb(122, 121, 121);"
+            class="btn dropdown-toggle"
+            [(ngModel)]="selectedSecondValue">
+      <option *ngFor="let option of cours" [value]="option">{{ option }}</option>
+    </select>
+  </td>
+  <td>
+    <select id="third-select"
+            type="text"
+            class="btn dropdown-toggle"
+            style="border-color: rgb(122, 121, 121);">
+      <option value="G1">G1</option>
+      <option value="G2">G2</option>
+    </select>
+  </td>
+  <td>
+    <input type="color"
+           [(ngModel)]="event?.color!.primary"
+           (change)="refresh.next()">
+  </td>
+  <td>
+    <input class="form-control"
+           type="text"
+           mwlFlatpickr
+           [(ngModel)]="event.start"
+           (ngModelChange)="refresh.next()"
+           [altInput]="true"
+           [convertModelValue]="true"
+           [enableTime]="true"
+           dateFormat="Y-m-dTH:i"
+           altFormat="F j, Y H:i"
+           placeholder="Not set">
+  </td>
+  <td>
+    <input class="form-control"
+           type="text"
+           mwlFlatpickr
+           [(ngModel)]="event.end"
+           (ngModelChange)="refresh.next()"
+           [altInput]="true"
+           [convertModelValue]="true"
+           [enableTime]="true"
+           dateFormat="Y-m-dTH:i"
+           altFormat="F j, Y H:i"
+           placeholder="Not set">
+  </td>
+  <td>
+    <button class="btn btn-danger" (click)="deleteEvent(event)">Delete</button>
+  </td>
+</tr>
+
       </tbody>
     </table>
   </div>

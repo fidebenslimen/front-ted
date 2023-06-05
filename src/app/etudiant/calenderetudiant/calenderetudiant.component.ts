@@ -83,9 +83,8 @@ export class CalenderetudiantComponent implements OnInit {
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
-      class: 'A 3 day event',
-      groupe:'',
-      cours:'',
+      title: 'A 3 day event',
+     
       color: { ...colors['red'] },
       actions: this.actions,
       allDay: true,
@@ -96,29 +95,6 @@ export class CalenderetudiantComponent implements OnInit {
       draggable: true,
     },
     
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      class: 'A long event that spans 2 months',
-      groupe:'',
-      cours:'',
-      color: { ...colors['blue'] },
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-    class: 'A draggable and resizable event',
-    groupe:'',
-    cours:'',
-      color: { ...colors['yellow'] },
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
   ];
 
   activeDayIsOpen: boolean = true;
@@ -166,9 +142,8 @@ export class CalenderetudiantComponent implements OnInit {
     this.events = [
       ...this.events,
       {
-        class: 'New event',
-        groupe:'vvvv',
-        cours:'fffff',
+        title: 'New event',
+        
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors['red'],

@@ -36,15 +36,6 @@
   ],
   "professors": [
     {
-      "id": 1,
-      "fullname": "stephan",
-      "phonenumber": "1234578",
-      "departement": "IT",
-      "dtr": "",
-      "gender": "Male",
-      "email": "STEPHANCLONE@gmail.com"
-    },
-    {
       "id": 2,
       "fullname": "joey tribiani",
       "phonenumber": "+21650124030",
@@ -126,6 +117,32 @@
       "class": "3eme BI",
       "mail": "soltaniGhada@gmail.com",
       "groupe": "groupe 1"
+    }
+  ],
+  "evenement": [
+    {
+      "id": 1,
+      "title": "event ",
+      "descr": "this event is ",
+      "start": "05/22/2023, 10:00 AM",
+      "end": "05/22/2023, 04:00 PM",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "title": "event 2",
+      "descr": "description event 2",
+      "start": "05/30/2023, 12:00 PM",
+      "end": "05/30/2023, 12:00 PM",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "title": "event 3",
+      "descr": "\tdescription event 2",
+      "start": "05/24/2023, 12:00 PM",
+      "end": "05/30/2023, 12:00 PM",
+      "image": ""
     }
   ]
 }

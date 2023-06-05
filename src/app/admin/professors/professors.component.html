@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of activiteData" class="table-secondary">
+      <tr *ngFor="let row of activiteData" >
         <td >{{row.fullname}}</td>
         <td>{{row.phonenumber}}</td>
         <td>{{row.departement}}</td>
@@ -88,7 +88,7 @@
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Phone Number</mat-label>
-              <input matInput   required formControlName="phonenumber"> 
+              <input matInput   required formControlName="phonenumber" type="number"> 
               </mat-form-field>
           </div>
           <div class="mb-3">
@@ -104,18 +104,20 @@
                 <input matInput   required formControlName="departement"> 
                 </mat-form-field>
             </div>
-            <p-calendar [(ngModel)]="date" ></p-calendar>
-          <div class="mb-3" > 
-            <mat-form-field appearance="fill">
-              <mat-label>Date de naissance</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="dtr">
-              <mat-hint>MM/DD/YYYY</mat-hint>
-             
-
-              <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
-              <mat-datepicker #picker ></mat-datepicker >
            
-            </mat-form-field>
+          <div class="mb-3" > 
+            <div class="input-group">
+              <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                [(ngModel)]="model"
+                ngbDatepicker
+                #d="ngbDatepicker"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+            </div>
+            
           </div>
          
       </section>

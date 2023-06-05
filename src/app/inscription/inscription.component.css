@@ -136,3 +136,15 @@ app-footer{
     background-color: rgba(0, 0, 0, 0.7);
     height: 20pt;
 }
+
+
+#cursus{
+    background-color: rgb(254, 188, 67);
+    border-color: rgb(254, 188, 67);
+height:20pt;
+}
+#cur{
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
+}
