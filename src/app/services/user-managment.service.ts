@@ -22,23 +22,11 @@ export class UserManagmentService {
       
     return this.http.delete<any>('http://localhost:8099/api/v1/springfever/api/user/delete/'+id);
 }
-public adduser(id: number):Observable<any>{
-      
-  return this.http.delete<any>('http://localhost:8099/api/v1/springfever/api/auth/signUpV3');
-}
-////////////////////////////////////////////////////////
-getUsersByRoleAndYear(role: string | undefined = undefined, year: number | undefined = undefined): Observable<user[]> {
-  let url = `${this.baseUrl}/FILTER_USERS`;
-  
-  if (role !== undefined && year !== undefined) {
-    url += `?role=${role}&year=${year}`;
-  } else if (role !== undefined) {
-    url += `?role=${role}`;
-  } else if (year !== undefined) {
-    url += `?year=${year}`;
-  }
 
-  return this.http.get<user[]>(url);
+////////////////////////////////////////////////////////
+getUserByRole(dip: string): Observable<any> {
+  const url = `http://localhost:8099/api/v1/springfever/api/user/FILTER_USERS/role?role=${dip}`;
+  return this.http.get<any>(url);
 }
 
 /////////////////////////////////////////////////////////
@@ -76,29 +64,17 @@ async updateUser(user: user) {
 }
 
 
-async getUserById(id:string)
-{
-  const response = await axios.get('http://localhost:8081/api/v1/springfever/api/user/getby/'+id);
 
-return response.data;
+
+getUserByid(id: string): Observable<any> {
+  const url = `http://localhost:8099/api/v1/springfever/api/user/getby/${id}`;
+  return this.http.get<any>(url);
 }
 
 
 
 
-async onSaveBadge(id: number) {
-  try {
-    
-    const response = await axios.post('http://localhost:8081/api/v1/springfever/badges/addbadge/'+id);
 
-    // Extract the HTML link from the response and open it in a new tab
-    const htmlLink = response.data.message;
-    console.log(htmlLink);
-    //window.open(htmlLink, '_blank');
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 
 getTimeoutLog() {

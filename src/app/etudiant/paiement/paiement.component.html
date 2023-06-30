@@ -9,9 +9,9 @@
         Vous êtes en train de procéder au paiement des frais de votre inscription.
     </p>
     <td style="display: flex; justify-content: space-evenly;color: black;">
-        <tr>Année<br>2022-2023</tr>
-        <tr>Niveau</tr>
-        <tr>code</tr>
+        <tr >Année<br>2022-2023</tr>
+        <tr>Niveau<br>Année 1 / Licence Big Data et analyse de données</tr>
+        <tr>code<br> 5</tr>
     </td>
 
     </div>
@@ -81,7 +81,7 @@
       </div>
       <div class="modal-body">
         <div class="card-body p-4">
-          <form>
+          <form >
             <div class="d-flex justify-content-between align-items-center mb-3">
               <div class="form-outline">
                 <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
@@ -133,32 +133,44 @@
       </div>
       <div class="modal-body">
         <div class="card-body p-4">
-          <form>
+          <form [formGroup]="myform" >
             <div class="mb-3">
+              <div class="form-outline">
+                <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                  placeholder="Mail"  formControlName="mail"/>
+              
+              </div>
               <mat-form-field appearance="fill">
+            
                 <mat-label>Méthode de paiement</mat-label>
-                <select matNativeControl required>
-                  <option value="volvo">Virement bancaire</option>
-                  <option value="saab">Par chéque</option>
+                <select matNativeControl required formControlName="methode" >
+                  <option value="Virement bancaire">Virement bancaire</option>
+                  <option value="Par chéque">Par chéque</option>
                  
                 </select>
                 </mat-form-field><br>
+</div>
+<div class="mb-3">
                 <mat-form-field appearance="fill">
+            
                   <mat-label>Date de paiement</mat-label>
                   <input matInput [matDatepicker]="picker">
                   <mat-hint>MM/DD/YYYY</mat-hint>
                   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-datepicker #picker formControlName="date"></mat-datepicker>
                 </mat-form-field>
-          
-<input type="file" class="form-control" id="customFile" />
-            </div> 
+          </div>
+          <div class="mb-3">
+          <label class="form-label" for="customFile">upload preuve</label>
+            <input type="file" class="form-control" id="customFile" type="file" accept="file*" (change)=" onImageChange($event)" formControlName="preuve"/>
+          </div>
+             
           </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-primary">Payer</button>
+        <button type="button" class="btn btn-primary" (click)="postpaiment()">Payer</button>
       </div>
     </div>
   </div>

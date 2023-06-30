@@ -60,14 +60,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReclamaComponent } from './enseignant/reclama/reclama.component';
 import {MatTreeModule} from '@angular/material/tree';
 import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calenderetudiant.component';
-
-
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { ToastrModule } from 'ngx-toastr';
 import { EvemenmentComponent } from './admin/evemenment/evemenment.component';
-import { ContactComponent } from './contact/contact.component';
+
 import { MdpComponent } from './etudiant/mdp/mdp.component';
 import { TestInscriComponent } from './test-inscri/test-inscri.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { AdmissionsStatComponent } from './admissions-stat/admissions-stat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,9 +100,10 @@ import { TestInscriComponent } from './test-inscri/test-inscri.component';
     ReclamaComponent,
     CalenderetudiantComponent,
     EvemenmentComponent,
-    ContactComponent,
+    
     MdpComponent,
     TestInscriComponent,
+    AdmissionsStatComponent,
    
     
  
@@ -115,8 +117,8 @@ import { TestInscriComponent } from './test-inscri/test-inscri.component';
      MatInputModule,MatStepperModule,
      FormsModule,ReactiveFormsModule,
      MatRadioModule,MatDatepickerModule,
-     HttpClientModule,MatNativeDateModule,
-     MatSelectModule,MatDialogModule
+     HttpClientModule,MatNativeDateModule,MatListModule,MatToolbarModule,
+     MatSelectModule,MatDialogModule,MatSidenavModule
    ,MatTableModule,MdbModalModule,  NgImageSliderModule, FontAwesomeModule,
    ChartModule,ScheduleModule,RecurrenceEditorModule,ButtonModule 
    , FullCalendarModule,CalendarModule,  CommonModule,FlatpickrModule,NgbModalModule,MatGridListModule,

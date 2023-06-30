@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
+import { user } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+ 
 
   token = localStorage.getItem('accessToken') 
 
@@ -16,7 +19,10 @@ export class LoginService {
  constructor(private http: HttpClient ,  private router: Router,) { }
 
  
-
+ getUserId(): string | null {
+  // Retrieve the userId from local storage
+  return localStorage.getItem('userId');
+ }
 login(username: string, password: string,token:any): void {
 
  axios.post<any>(this.loginUrl, { username, password })
@@ -27,13 +33,14 @@ login(username: string, password: string,token:any): void {
      localStorage.setItem('roles', response.data.roles);
      localStorage.setItem('userId', response.data.id);
      localStorage.setItem('mail',response.data.email)
+    
 
      if(localStorage.getItem('roles')?.includes("ADMIN")) {
       // Navigate to another page 
        this.router.navigate(['admin'])
      }
     else if (localStorage.getItem('roles')?.includes("SUPER_ADMIN")){this.router.navigate(['admin']);}
-     else if(localStorage.getItem('roles')?.includes("STUDENT")) { this.router.navigate(['student']);}
+     else if(localStorage.getItem('roles')?.includes("STUDENT")) { this.router.navigate(['etudiant']);}
      else if(localStorage.getItem('roles')?.includes("TEACHER")) { this.router.navigate(['enseignant']);}
     
      
@@ -93,7 +100,10 @@ showAlert(message: string): void {
 
 
 
-
+   getLoggedInUser(): user {
+    return this.loggedInUser;
+  }
+  
 
  resetPassword(username: string) {
    return this.http.post(`${this.resetUrl}/resetPassword?resetPasswordRequest=${username}`,this.httpOptions)
@@ -101,6 +111,7 @@ showAlert(message: string): void {
  }
 
  
+ loggedInUser!: user;
 
  logout(): void {
    // Remove the token and user data from local storage

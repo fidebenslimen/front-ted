@@ -16,24 +16,7 @@
   "profile": {
     "name": "typicode"
   },
-  "candidat": [
-    {
-      "id": 3,
-      "type": "",
-      "specialite": "BAC+2",
-      "etablissement": "GG",
-      "mention": "Assez bien",
-      "annee": 2020
-    },
-    {
-      "id": 4,
-      "type": "",
-      "specialite": "math",
-      "etablissement": "lycée",
-      "mention": "Assez bien",
-      "annee": "2020"
-    }
-  ],
+  "candidat": [],
   "professors": [
     {
       "id": 2,
@@ -74,6 +57,27 @@
       "objet": "eeeee",
       "message": "hhh",
       "date": "2023-05-11"
+    },
+    {
+      "id": 5,
+      "type": "Attestation de paiement",
+      "objet": "Attestation de paiement pour la 1er trimester",
+      "message": "Attestation de paiement pour la 1er trimester",
+      "date": "2023-06-10"
+    },
+    {
+      "id": 6,
+      "type": "Attestation de paiement",
+      "objet": "attestation de paiment pour la 1er semestre ",
+      "message": "attestation de paiment pour la 1er semestre ",
+      "date": "2023-06-10"
+    },
+    {
+      "id": 7,
+      "type": "Attestation de paiement",
+      "objet": "attestation de paiment pour la 1er semestre ",
+      "message": "attestation de paiment pour la 1er semestre ",
+      "date": "2023-06-10"
     }
   ],
   "reclamations": [
@@ -98,6 +102,13 @@
       "objet": "vvvvvvvvvvvvv",
       "message": "",
       "date": "2023-05-08"
+    },
+    {
+      "id": 4,
+      "type": "Réclamation Absence",
+      "objet": "sdgfghjk",
+      "message": "xcghbjkl",
+      "date": "2023-06-16"
     }
   ],
   "courses": [
@@ -144,5 +155,6 @@
       "end": "05/30/2023, 12:00 PM",
       "image": ""
     }
-  ]
+  ],
+  "Paiement": []
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PaiementPreuveService } from 'src/app/etudiant/paiement/paiement-preuve.service';
 @Component({
   selector: 'app-payemen',
   templateUrl: './payemen.component.html',
@@ -9,8 +9,8 @@ export class PayemenComponent implements OnInit {
   transactions = [
     {
       id: 1,
-      title: "Jens Brincker",
-      date: "22/01/2023",
+      title: "fida ben slimen",
+      date: "22/05/2023",
       field: "Executive MBA",
       type:"Null",
       status: "Unpaid",
@@ -18,36 +18,36 @@ export class PayemenComponent implements OnInit {
     },
     {
       id: 2,
-      title: "Denver Blackcode",
+      title: "ghada soltani",
       date: "27/05/2023",
       field: "MASTER CYBER SECURITY",
       type:"cheque",
-      status: "Paid",
+      status: "Unpaid",
     
     },
+   
     {
       id: 3,
-      title: "David Perry",
-      date: "11/04/2023",
-      field: "Licence Computer Science GLIS",
-      type:"Credit card",
-      status: "Paid",
-    
-    },
-    {
-      id: 4,
-      title: "Jennifer Perry",
-      date: "12/05/2023",
+      title: "Sirin gebsi",
+      date: "12/06/2023",
       field: "Licence Computer Science GLIS",
       type:"preuve",
       status: "Pending",
     
     }
   ];
-  
-  constructor() { }
+  receivedData: any[] = [];
+  constructor(private PaiementPreuveService:PaiementPreuveService) { }
 
   ngOnInit(): void {
+    this.PaiementPreuveService.getPaiement().subscribe(data => {
+      this.receivedData = data; // Update the receivedData property with the data from the shared service
+    });
   }
+  getFileUrl(fileName: string): string {
+    // Assuming your files are served from a static assets directory named 'files'
+    return `/assets/files/${fileName}`;
+  }
+  
 
 }

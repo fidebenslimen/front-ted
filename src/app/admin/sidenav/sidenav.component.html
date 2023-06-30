@@ -1,10 +1,23 @@
 
 <section class="all">
 <div class="nav-items">
-    <div class="nav-item" (click)="gotoDa()">
-      <fa-icon [icon]="faDashboard" ></fa-icon>
-      <span>Dashboard</span>
+  <div class="nav-item" (click)="toggleAdmissionsPanel()" (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <fa-icon [icon]="faDashboard"></fa-icon>
+    <span style="justify-content: space-between;">Dashboard   <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+  </div>
+
+  <div class="additional-nav-items" *ngIf="isAdmissionsPanelOpen">
+    <div class="nav-item" (click)="gotoDaAD()">
+      <fa-icon [icon]="faDashboard"></fa-icon>
+      <span>Admissions dashboard</span>
     </div>
+    <div class="nav-item" (click)="gotoDaSt()">
+      <fa-icon [icon]="faDashboard"></fa-icon>
+      <span>Students dashboard</span>
+    </div>
+  </div>
+  
     <div class="nav-item" (click)="gotoPr()">
     <fa-icon [icon]="faUser" ></fa-icon>
       <span>Professors</span>
@@ -27,11 +40,11 @@
 
     <div class="additional-nav-items" *ngIf="isAdmissionsPanelOpen">
       <div class="nav-item" (click)="gotocalender()">
-       
+        <fa-icon [icon]="faCalendarDays"></fa-icon>
         <span>Courses Calendar</span>
       </div>
       <div class="nav-item" (click)="gotoeven()">
-       
+        <fa-icon [icon]="faCalendarDays"></fa-icon>
         <span>Event Calendar</span>
       </div>
     </div>
@@ -41,10 +54,7 @@
       <fa-icon [icon]="faBook"></fa-icon>
       <span>Courses</span>
     </div>
-    <div class="nav-item">
-      <fa-icon [icon]="faChartBar"></fa-icon>
-      <span>Attendances</span>
-    </div>
+ 
     <div class="nav-item" (click)="gotodemrec()" >
       <fa-icon [icon]="faContactBook"></fa-icon>
       <span>Demandes & réclamations</span>
@@ -52,6 +62,10 @@
     <div class="nav-item"  (click)="gotopaymen()">
       <fa-icon [icon]=" faMoneyBills"></fa-icon>
       <span>Payements</span>
+    </div>
+    <div class="nav-item"  (click)="gotopaymen()">
+      <fa-icon [icon]="  faUsers"></fa-icon>
+      <span>ADMINS</span>
     </div>
    
   </div>

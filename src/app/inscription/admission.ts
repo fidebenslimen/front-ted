@@ -1,4 +1,4 @@
-import { cursus } from "./cursus";
+import { diplome } from "./cursus";
 import { typeDemande } from "./typeDemande";
 import { sexe } from "./sexe";
 
@@ -12,13 +12,15 @@ export interface admissions{
     firstname:string;
     lastname:string;
     mail:string;
-    cvv:string;
+    cvv:File;
     specialite:string;
     etablissement:number;
     mention:string;
     annee:number;
-    cursus : cursus;
-    CV: string;
+    image:string;
+    diplome : diplome;
+    CIN: File;
+   
     sexe:sexe;
 
 }
@@ -194,6 +196,7 @@ const typeMap: any = {
     "JobOffer": o([
         { json: "idAdmission", js: "idAdmission", typ: 0 },                                        
         { json: "dateAdmission", js: "dateAdmission", typ: "" },
+        { json: "CIN", js: "CIN", typ: "" },
         { json: "typeDemande", js: "typeDemande", typ: "" },
         { json: "diplome", js: "diplome", typ: "" },
         { json: "niveau", js: "niveau", typ: "" },

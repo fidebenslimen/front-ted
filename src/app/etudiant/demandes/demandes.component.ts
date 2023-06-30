@@ -39,15 +39,44 @@ export class DemandesComponent implements OnInit {
     this.dataService.postActivite(this.demandes)
     .subscribe(res=>{
       console.log(res);
-      alert("Demande bien ajoutée");
-      this. myForm.reset();
+      this.showAlert("Demande bien ajoutée");
+     
       this.getAllActivite();
     },
     err=>{
-      alert('something went wrong!!!');
+     this.showAlert('something went wrong!!!');
     })
 
   }
+  showAlert(message: string): void {
+    const alertBox = document.createElement('div');
+    alertBox.innerHTML = message;
+    alertBox.classList.add('custom-alert');
+   
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .custom-alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: green;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 9999;
+      }
+    `;
+   
+    document.head.appendChild(style);
+    document.body.appendChild(alertBox);
+   
+    setTimeout(() => {
+      alertBox.remove();
+      style.remove();
+    }, 3000);
+   }
+   
   getAllActivite(){
     this.dataService.getActivite()
     .subscribe(res=>{

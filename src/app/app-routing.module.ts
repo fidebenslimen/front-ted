@@ -24,6 +24,7 @@ import { CalenderetudiantComponent } from './etudiant/calenderetudiant/calendere
 import { EvemenmentComponent } from './admin/evemenment/evemenment.component';
 import { TestInscriComponent } from './test-inscri/test-inscri.component';
 import { MdpComponent } from './etudiant/mdp/mdp.component';
+import { NombreStaffEachComponent } from './admin/nombre-staff-each/nombre-staff-each.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent , data: { returnUrl: window.location.pathname }},
@@ -43,13 +44,15 @@ const routes: Routes = [
 {path: 'enseignant', component:EnseignantComponent},
 {path: 'dem-rec', component:DemandereclamationComponent},
 {path: 'avancement', component:AvancementComponent},
-{path: 'profile', component:ProfileComponent},
+{path: 'profile/:id', component:ProfileComponent},
 {path: 'en/reclamation', component:ReclamaComponent},
 {path: 'payement', component:PayemenComponent},
 {path: 'etudiant/emploi', component:CalenderetudiantComponent},
 {path: 'evenment', component:EvemenmentComponent},
 {path: 'test', component:TestInscriComponent},
 {path: 'mdpoublié', component:MdpComponent},
+{path: 'StudentDa', component:NombreStaffEachComponent},
+
 
 
 

@@ -3,7 +3,7 @@ import { Chart } from 'angular-highcharts';
 import { ToastrService, GlobalConfig } from 'ngx-toastr';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { typeDemande } from 'src/app/inscription/typeDemande';
-import { cursus } from 'src/app/inscription/cursus';
+import { diplome } from 'src/app/inscription/cursus';
 import { admissions } from 'src/app/inscription/admission';
 import { AdmissionService } from 'src/app/inscription/admission.service';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,15 @@ export class AdmissionsComponent implements OnInit {
   toastrConfig!: Partial<GlobalConfig>;
   model!: NgbDateStruct;
   panelOpenState = false;
-
+  getCVVImageUrl(): string {
+    if (this.Details && this.Details.cvv && this.Details.userid) {
+      return `http://localhost:8099/api/v1/springfever/file-system/image/${this.Details.userid}`;
+    } else 
+    {
+      return ''
+    }
+  }
+  
   constructor(private toastr: ToastrService, private AdmissionService: AdmissionService ,private route:ActivatedRoute) {
     this.toastrConfig = {
       positionClass: 'toast-top-center',
@@ -24,20 +32,34 @@ export class AdmissionsComponent implements OnInit {
     };
   }
 id:any;
+dip!:string;
 loadDemandeAdmissionDetails(id: number) {
   this.AdmissionService.getDemandeAdmission(id)
     .subscribe((demandeAdmission: any) => {
-      this.admissionDetails = demandeAdmission;
+      this.Details = demandeAdmission;
     }, (error) => {
       console.error(error);
     });
 }
+filteredAdmissions!: any[];
+
+getAdmissionsByDiplome(diplome: string) {
+  this.AdmissionService.getDemandeAdmissionBydiplome(diplome)
+    .subscribe((admissions: admissions[]) => {
+      this.admissionDetails = admissions;
+    }, (error) => {
+      console.error(error);
+    });
+}
+
 admissionDetails: any;
+Details:any;
 ngOnInit(): void {
   this.getALLAdmission();
   const currentDate = new Date();
 this.id=this.route.snapshot.params['id'];
  // Replace 1 with the desired ID
+this.getAdmissionsByDiplome(this.dip)
   this.loadDemandeAdmissionDetails(this.id);
 
 // Date de début du compte à rebours
@@ -85,16 +107,13 @@ setInterval(() => {
   }
  
   
-  deleteDemandeAdmission(arg0: number) {
-    throw new Error('Method not implemented.');
-  }
-
-  openMap() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var directionsUrl = "https://www.google.com/maps/dir/?api=1&origin=" + position.coords.latitude + "," + position.coords.longitude + "&destination=ESB:+Esprit+School+of+Business&travelmode=driving";
-      window.open(directionsUrl, "_blank");
+  deleteDemandeAdmission(id: number) {
+    this.AdmissionService.deleteDemandeAdmission(id).subscribe(() => {
+      this.getALLAdmission(); // mise à jour de la liste après suppression
     });
   }
+ 
+ 
   DemandeidAdmission!: admissions[]
   DemandeAdmission!: admissions[]
   
@@ -121,15 +140,18 @@ setInterval(() => {
    niveau!: string;
    sexe!:string;
    cursus!: string;
-   CV!: string;
+   image!:string;
+   CIN!: File;
+   
   dob!:string
+ 
    selectedFile!: File;;
 
   typedemande: (string| typeDemande)[] = Object.values(typeDemande);
  
-  cursuus: (string| cursus)[] = Object.values(cursus);
+  cursuus: (string| diplome)[] = Object.values(diplome);
   
-
+  
   onSubmit() {
     const formData = new FormData();
     formData.append('typeDemande', this.typeDemande);
@@ -140,9 +162,11 @@ setInterval(() => {
     formData.append('cursus', this.cursus);
     formData.append('sexe', this.sexe);
     formData.append('dob', this.dob);
-    formData.append('CV', this.selectedFile);
+    formData.append('CIN', this.CIN);
     formData.append('userid', "1");
     formData.append('specialiterid', "1");
+     // Append the selected CV file
+
     this.AdmissionService.addDemandeAdmission(formData).then(res => {
       console.log("res.data");
     })
@@ -160,11 +184,11 @@ setInterval(() => {
   timeLeft = this.end.getTime() - new Date().getTime();
   interval:any;
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+  onFileSelected(file: File) {
+    this.selectedFile = file;
   }
-
-
+  
+  
  
 }
 

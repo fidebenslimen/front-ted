@@ -11,7 +11,7 @@ import { admissions } from './admission';
 import { AdmissionService } from './admission.service';
 import { typeDemande } from './typeDemande';
 import { sexe } from './sexe';
-import { cursus } from './cursus';
+import { diplome } from './cursus';
 interface type {
   value: string;
   viewValue: string;
@@ -62,7 +62,7 @@ export class InscriptionComponent implements OnInit {
   selectedFile!: File;
 
   typedemande: (string| typeDemande)[] = Object.values(typeDemande);
-  cursuus: (string| cursus)[] = Object.values(cursus);
+  cursuus: (string| diplome)[] = Object.values(diplome);
  
 
 

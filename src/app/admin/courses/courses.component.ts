@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup} from '@angular/forms';
+import {FormBuilder,FormGroup,NgForm} from '@angular/forms';
 import { CoursesService } from './courses.service';
 import { cousesModel } from './courses.model';
+import { diplome } from 'src/app/inscription/cursus';
+import { niveau } from 'src/app/models/niveau';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -12,7 +14,7 @@ export class CoursesComponent implements OnInit {
   coursesForm!:FormGroup;
   cousesModel : cousesModel= new  cousesModel();
   coursesData !:any;
-  constructor(private _formBuilder: FormBuilder,private api:CoursesService ) { }
+  constructor(private _formBuilder: FormBuilder,private CoursesService:CoursesService ) { }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     const reader = new FileReader();
@@ -35,54 +37,41 @@ export class CoursesComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-  
+  courses: any;
   ngOnInit(): void {
-    console.log('ngOnInit called');
-    this.coursesForm = this._formBuilder.group({
-      name:[''],
-      professor:[''],
-      class:[''],
-      image:['']
-     
-
-
-    })
-    this.getAllActivite();
-    
+      this.getAllCourses();
+   
   }
+  nom_cours!:string;
+  professor!:string;
+  diplome!:string;
+   niveau!: string;
+   image!:string;
+ 
+   getAllCourses() {
+    this.CoursesService.getAllCourses()
+      .subscribe((cousesModel : cousesModel []) => {
+        this.courses = cousesModel ;
+      }, (error) => {
+        console.error(error);
+      });
+      
+  }
+  Diplome: (string|  diplome )[] = Object.values( diplome );
+  iveau: (string| niveau)[] = Object.values(niveau);
+  onSubmit(form: NgForm) {
+    const formData = new FormData();
+    formData.append('nom_cours', this.nom_cours);
+    formData.append('niveau', this. niveau);
+    formData.append('diplome', this.diplome);
+
+    this.CoursesService.addcourse(formData).then(res => {
+      console.log("res.data");
+    });
   
-  postCandidatDetails() {
-    this.cousesModel.name = this.coursesForm.value.name;
-    this.cousesModel.professor = this.coursesForm.value.professor;
-    this.cousesModel.class = this.coursesForm.value.class;
-    this.cousesModel.image = this.coursesForm.value.image; // add the image value
-
-    console.log("postCandidatDetails called");
-    this.api.postActivite(this.cousesModel)
-      .subscribe(res => {
-        console.log(res);
-        alert("course added");
-        this.coursesForm.reset();
-        this.getAllActivite();
-       
-      },
-      err => {
-        alert('something went wrong!!!');
-      })
   }
+Courses!:cousesModel []
+ 
 
-  getAllActivite(){
-    this.api.getActivite()
-    .subscribe(res=>{
-      this.coursesData=res;
-    })
-  }
-  deleteActivite (row: any){
-    this.api.deleteActivite(row.id)
-      .subscribe(res =>{
-        alert("course deleted");
-        this.getAllActivite();
-
-    })
-  }
+  
 }

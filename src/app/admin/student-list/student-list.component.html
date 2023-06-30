@@ -54,49 +54,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr >
-      
+   
+    
+    <tr *ngFor="let row of StudentDetails">
       <td>
         <div class="d-flex align-items-center">
           <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td >
-      012345678
-      </td>
-      <td >
-        <p class="fw-normal mb-1">Licence Big data </p>
-    
-      </td>
-    <td>Groupe 1</td>
-  
-      <td>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-      </td>
-    </tr>
-    
-    <tr *ngFor="let row of studentsData">
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+          [src]="row.image?'http://localhost:8099/api/v1/springfever/file-system/image/'+row.userid:'https://i.ibb.co/hXggbL8/326256274-886519465994764-4418670683645986197-n.jpg'"
               class="rounded-circle"
               alt=""
               style="width: 45px; height: 45px"
               />
           <div class="ms-3">
-            <p class="fw-bold mb-1">{{row.fullname}}</p>
-            <p class="text-muted mb-0">{{row.mail}}</p>
+            <p class="fw-bold mb-1">{{row.username}}</p>
+            <p class="text-muted mb-0">{{row.email}}</p>
           </div>
         </div>
       </td>
@@ -104,18 +75,19 @@
   {{row.cin}}
 </td>
       <td>
-        <p class="fw-normal mb-1">{{row.class}}</p>
+        <p class="fw-normal mb-1">LICENCE_BIG_DATA_ET_ANALYSE_DE_DONNEES</p>
       
       </td>
       <td>
-      {{row.groupe}}
+      Groupe 1
       </td>
       
    
       <td>
        
-        <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:blue"></i>
+        <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:rgb(255, 179, 0)"></i>
         <i class="fa fa-trash-o" aria-hidden="true"  style="color:red"></i>
+<i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" id="view" style="color:blue;" ></i>
       </td>
     </tr>
   </tbody>
@@ -127,7 +99,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel" >Informations</h3>
+        <h3 class="modal-title" id="exampleModalLabel" >Add student</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

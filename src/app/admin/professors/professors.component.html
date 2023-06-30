@@ -20,35 +20,54 @@
 <button type="button" class="btn btn-light"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</button>
 </div>
 </section>
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th >Name</th>
+      <th>CIN</th>
+     
+      <th>Phone Number</th>
+      <th>Date of birth </th>
 
-<table class="table mt">
-    <thead>
-      <tr >
-        <th scope="col">Full Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    <tr *ngFor="let row of professorDetails">
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+          [src]="row.image?'http://localhost:8099/api/v1/springfever/file-system/image/'+row.userid:'https://ibb.co/P4xrHT3'"
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{row.username}}</p>
+            <p class="text-muted mb-0">{{row.email}}</p>
+          </div>
+        </div>
+      </td>
+<td>
+  {{row.cin}}
+</td>
+      <td>
+      {{row.phoneNumber}}
+      </td>
+      <td>
+        {{ row.dob  | date:'yyyy-MM-dd' }}
+        </td>
+      
+   
+      <td>
        
-        <th scope="col">Phone Number</th>
-        <th scope="col">Departement</th>
-        <th scope="col">Recruitment date</th>
-        <th scope="col">Email</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of activiteData" >
-        <td >{{row.fullname}}</td>
-        <td>{{row.phonenumber}}</td>
-        <td>{{row.departement}}</td>
-        <td>{{row.dtr}}</td>
-        <td>{{row.email}}</td>
-        <td>
-            <button style="background-color:#545554" type="submit" class="btn" >View profile</button>
-          </td>
-        <td style="color:blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td> 
-        <td style="color:red" (click)="deleteActivite(row)"><i class="fa fa-trash-o" aria-hidden="true"></i></td>                   
-        
-      </tr>
-    </tbody>
-   </table>
+        <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:blue"></i>
+        <i class="fa fa-trash-o" aria-hidden="true"  style="color:red"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 </nav>
@@ -70,13 +89,13 @@
             <div class="mb-3">
               <mat-form-field appearance="fill">
                 <mat-label>Full Name</mat-label>
-                <input matInput   required formControlName="fullname"> 
+                <input matInput   required > 
                 </mat-form-field>
             </div>
             <div class="mb-3">
               <mat-form-field appearance="fill">
                 <mat-label>Gender</mat-label>
-                <select matNativeControl required  formControlName="gender">
+                <select matNativeControl required >
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 
@@ -88,20 +107,20 @@
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Phone Number</mat-label>
-              <input matInput   required formControlName="phonenumber" type="number"> 
+              <input matInput   required  type="number"> 
               </mat-form-field>
           </div>
           <div class="mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
-              <input matInput   required formControlName="email"> 
+              <input matInput   required > 
               </mat-form-field>
           </div></section>
           <section  style="display: flex;justify-content: space-evenly;">
             <div class="mb-3">
               <mat-form-field appearance="fill">
                 <mat-label>Departement</mat-label>
-                <input matInput   required formControlName="departement"> 
+                <input matInput   required > 
                 </mat-form-field>
             </div>
            
@@ -131,7 +150,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="postCandidatDetails()">Add</button>
+        <button type="button" class="btn btn-primary" >Add</button>
       </div>
     </div>
   </div>

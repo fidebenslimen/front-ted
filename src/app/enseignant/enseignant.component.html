@@ -35,28 +35,78 @@
   </nav>
 </header>
 <header class="bg" style="background-color: #FED51B;">
+  <section style="display: flex;justify-content: space-between;">
+ 
     <nav class="navbar navbar-expand-lg navbar-light bg-gold container">
       <a class="navbar-brand" href="#">TED university</a><img src="logo.png" style="height:37pt;width:60pt">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" (click)=" goToEnseignant()">Acceuil</a>
+          <li class="nav-item" >
+            <a class="nav-link" (click)=" goToEnseignant()"><i class="fa fa-home" aria-hidden="true"></i>  Acceuil</a>
           </li>
-          </ul>
-          </div></nav>
+          <li class="nav-item" >
+            <a class="nav-link" (click)=" goToEnseignant()"><i class="fa fa-bars" aria-hidden="true"></i> Fiche cours </a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" (click)=" goToEnseignant()"><i class="fa fa-calendar" aria-hidden="true"></i> Emploi </a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" (click)=" gotoservices()"><i class="fa fa-info-circle" aria-hidden="true"></i>  Reclamtions</a>
+          </li>
+          
+        </ul>
+      </div>
+          </nav>
+        </section>
           </header>
 <br><br><br>
-<div class="main">
-<mat-grid-list cols="3"   rowHeight="3:1" style="padding-left: 300pt;height:280pt;padding-top: 40pt;">
-    <mat-grid-tile id="temps">Emploi de temps</mat-grid-tile>
-    <mat-grid-tile id="appel">Fiche d'appel</mat-grid-tile>
-    <mat-grid-tile id="note">Notes et résultats</mat-grid-tile>
-    <br>
-    <mat-grid-tile id="service" (click)="gotoservices()">Services</mat-grid-tile>
-  </mat-grid-list>
-</div>
-<br><br>
-  <app-footer></app-footer>
+  <div style="display: flex; justify-content: center;">
+    <div style="width: 840px; height: 570px; text-align: center; margin: 0; padding-left: 30px;">
+      <ng-image-slider #nav
+        [images]="imageObject"
+        [infinite]="false"
+        [autoSlide]="1"
+        [imageSize]="{width: '100%', height: 400}"
+        slideImage="1"></ng-image-slider>
+    </div>
+    <div style="width: 400px; background-color: #fff; padding: 20px; margin-left: 30px;border-color: gray;border-radius: 10%;">
+      <div class="card text-black" style="border-radius: 25px;">
+        <div class="card-body ">
+          <div class="row justify-content-center">
+           
+      <h2 style="text-align: center;text-decoration: underline ;
+      color:rgb(77, 76, 76);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> <i class="fa fa-info-circle" aria-hidden="true" style="color:red"></i>       Important Events 
+      </h2>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th ></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let data of EventsData">
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{data.title}}</p>
+              <p class="text-muted mb-0">{{data.descr}}</p>
+            </div>
+            <td>{{data.start}}</td>
+            <td>{{data.end}}</td>
+          </tr>
+          
+          </tbody>
+          </table>
+      </div></div></div>
+  
+    </div>
+    
+    
+  </div>
+
+  
+<app-footer></app-footer>

@@ -18,9 +18,12 @@ export class LoginComponent implements OnInit {
   username!:string;
   password!:string;
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router , private  LoginService: LoginService ) {
+  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router , private  LoginService: LoginService,private router: Router ) {
     this.token = undefined;
 
+  }
+   Mdpoublie() {
+    this.router.navigate(['mdpoublié']);
   }
 
   ngOnInit(): void {

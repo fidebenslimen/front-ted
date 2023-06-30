@@ -12,6 +12,11 @@ mat-grid-list{
     padding-left: 40pt;
     padding-right: 40pt;
 }
+.offcanvas{
+    width:100pt !important;
+}  
+
+  
 #appel{
     background-color: rgb(117, 144, 232);
     font-weight: bold;
@@ -53,4 +58,11 @@ mat-grid-list{
     color: white;
     font-size: large;
 
+}
+a{
+    color: black;
+
+}
+a:hover{
+    color: rgb(67, 66, 66);
 }

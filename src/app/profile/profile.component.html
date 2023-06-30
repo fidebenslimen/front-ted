@@ -4,19 +4,20 @@
     Mon profile</h5>
   <hr style="color:gold;height:20px">
   <section class="two" style="display: flex;justify-content: space-evenly;">
-    <div>
-<img src="\assets\male.jpg" id="img">
+ 
+    <div >
+<img   [src]="Details.image?'http://localhost:8099/api/v1/springfever/file-system/image/'+Details.userid:'https://i.ibb.co/hXggbL8/326256274-886519465994764-4418670683645986197-n.jpg'" id="img">
 <br>
-<h4 style="text-align: center;">NOM & PRENOM</h4>
+<h4 style="text-align: center;">{{Details?.username}}</h4><p></p>
 </div>
 <div class="col-lg-9 col-md-12">
     <h3 class="my-profile-section-h">Contact</h3>
     <hr>
     <dl class="row">
-        <dt class="col-sm-3">E-mail :</dt>
-        <dd class="col-sm-9"></dd>
+        <dt class="col-sm-3">E-mail : </dt>
+        <dd class="col-sm-9">{{Details?.email}}</dd>
         <dt class="col-sm-3">Téléphones :</dt>
-        <dd class="col-sm-9"></dd>
+        <dd class="col-sm-9">{{Details?.phoneNumber}}</dd>
         <dt class="col-sm-3">Adresse :</dt>
         <dd class="col-sm-9">
          
@@ -27,10 +28,10 @@
     <hr>
     <dl class="row">
         <dt class="col-sm-3">CIN :</dt>
-        <dd class="col-sm-9">
+        <dd class="col-sm-9">{{Details?.cin}}
         </dd>
         <dt class="col-sm-3">Date de naissance :</dt>
-        <dd class="col-sm-9">
+        <dd class="col-sm-9">{{Details?.dob}}
         </dd></dl>
 <h3 class="my-profile-section-h">Class </h3>
     <hr>
@@ -43,6 +44,7 @@
 
 
 </div>
+
 </section>
 </div>
 

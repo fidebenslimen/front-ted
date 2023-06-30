@@ -50,6 +50,25 @@
           }">{{ transaction.status }}</td>                   
        
         </tr>
+        <tr *ngFor="let transaction of receivedData" >
+          <td>{{ transaction.id}}</td>
+          <td>{{ transaction.mail }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.methode }}</td> 
+          <td><img  src="{{transaction.preuve}}" class="card-img-top" alt="..."></td> 
+        
+          <td>
+            <a [href]="getFileUrl(transaction.preuve)" download>Download Preuve</a>
+  
+          </td>
+          <td   class="status"
+          [ngClass]="{
+            paid: transaction.status === 'Paid',
+            unpaid: transaction.status === 'Unpaid',
+            pending: transaction.status === 'Pending'
+          }">{{ transaction.status }}</td>                   
+       
+        </tr>
       
       </tbody>
       

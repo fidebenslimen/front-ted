@@ -1,9 +1,9 @@
 export class StudentsModel{
     id:number=0;
-    fullname:string='';
+    username:string='';
     cin:string='';
     class:string='';
-    mail:string='';
+    email:string='';
     groupe:string='';
     
    

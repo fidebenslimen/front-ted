@@ -23,8 +23,8 @@
        Bienvenue  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </a>
       <ul class="dropdown-menu"   >
-        <li><a class="dropdown-item" (click)="goToprofile()">Mon compte</a></li>
-        <li><a class="dropdown-item" href="#">changer mot de passe</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/profile',id]">Mon compte</a></li>
+        <li><a class="dropdown-item" (click)=" Mdpoublie()">changer mot de passe</a></li>
         <li><a class="dropdown-item" (click)=" goToLog()">Se déconnecter</a></li>
         
       </ul>
@@ -50,10 +50,9 @@
               <i class="fa fa-bars" aria-hidden="true"></i> Mon espace 
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Emploi du temps</a></li>
-              <li><a class="dropdown-item" href="#">Absences</a></li>
-              <li><a class="dropdown-item" href="#">Notes et résultat</a></li>
-              <li><a class="dropdown-item" href="#">Plan d'études</a></li>
+              <li><a class="dropdown-item" (click)="goToEmploi()">Emploi du temps</a></li>
+              
+              <li><a class="dropdown-item" href="#">Fiche cours</a></li>
             </ul>
           </div></li> 
           <li><div class="dropdown-center">

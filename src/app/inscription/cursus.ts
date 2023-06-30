@@ -1,4 +1,4 @@
-export enum cursus{
+export enum diplome{
     MASTER_CYBER_SECURITY="MASTER_CYBER_SECURITY",
     Master_Cloud_computing_et_virtualisation="Master_Cloud_computing_et_virtualisation",
     Licence_Big_Data_et_Analyse_de_Données=" Licence_Big_Data_et_Analyse_de_Données",

@@ -11,7 +11,8 @@ import {
   faChartBar,
   faContactBook,
   faFilePrescription,
- faBook,faCalendarDays
+ faBook,faCalendarDays,
+ faUsers
 } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidenav',
@@ -28,6 +29,7 @@ faDashboard = faDashboard;
   faFilePrescription=faFilePrescription;
   faContactBook = faContactBook;
   faBook = faBook;
+  faUsers= faUsers;
   faChevronUp=faChevronUp;
   faChevronDown=faChevronDown;
   
@@ -38,8 +40,11 @@ faDashboard = faDashboard;
    gotoPr(){
     this.router.navigate(['professors']);
   }
-  gotoDa(){
+  gotoDaAD(){
     this.router.navigate(['admin']);
+  }
+  gotoDaSt(){
+    this.router.navigate(['StudentDa']);
   }
   gotoS(){
     this.router.navigate(['students']);

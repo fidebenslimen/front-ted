@@ -6,7 +6,7 @@ export class user {
     email!: string;
     firstname!: string;
     lastname!: string;
-    cin!: string;
+    cin!: File;
     etatUser!: string;
     phoneNumber!: string;
     dob!: string;

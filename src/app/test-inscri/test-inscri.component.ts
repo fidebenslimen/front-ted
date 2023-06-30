@@ -11,7 +11,7 @@ import { admissions } from '../inscription/admission';
 import { AdmissionService } from '../inscription/admission.service';
 import { typeDemande } from '../inscription/typeDemande';
 import { sexe } from '../inscription/sexe';
-import { cursus } from '../inscription/cursus';
+import { diplome } from '../inscription/cursus';
 @Component({
   selector: 'app-test-inscri',
   templateUrl: './test-inscri.component.html',
@@ -33,7 +33,7 @@ export class TestInscriComponent implements OnInit {
   selectedFile!: File;
 
   typedemande: (string| typeDemande)[] = Object.values(typeDemande);
-  cursuus: (string| cursus)[] = Object.values(cursus);
+  cursuus: (string| diplome)[] = Object.values(diplome);
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });

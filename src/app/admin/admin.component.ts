@@ -15,7 +15,7 @@ import {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  
+ 
   faGraduationCap=faGraduationCap;
   faUserGroup= faUserGroup;
   faUniversity=faUniversity;
@@ -24,5 +24,7 @@ export class AdminComponent {
  
    }
     showW=false;
+
+    
 
 }

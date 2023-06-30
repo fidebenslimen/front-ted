@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import {
+ 
+  faGraduationCap,
+  faUserGroup,
+  faUniversity,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nombre-staff-each',
@@ -7,86 +17,159 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./nombre-staff-each.component.css']
 })
 export class NombreStaffEachComponent implements OnInit{
+ 
+  constructor(private http: HttpClient) { }
+  ngOnInit() {
+  }
+  
+ 
+  faGraduationCap=faGraduationCap;
+  faUserGroup= faUserGroup;
+  
   chart = new Chart({
     chart: {
-      type: 'line',
-      height: 325
+      type: 'column',  // Change the chart type to 'column' for vertical bars
+      height: 325,
+      width:470
     },
     title: {
-      text: 'University Admissions'
+      text: "Student's number in master diploma"
     },
     xAxis: {
       categories: [
         'MCY',
         'MCCV',
-        'LBDADD',
-        'LCSGLIS',
-        'LCERS',
+       
         'EXMBA'
       ]
     },
     yAxis: {
       title: {
-        text: 'number of admissions'
+        text: 'Number of Admissions'
       }
     },
     series: [
       {
         name: "MASTER CYBER SECURITY",
-        type: "line",
+        type: "column",  // Change the series type to 'column'
         color: '#044342',
-        data: [70, 69, 95, 145, 182, 215]
+        data: [12]
       },
       {
         name: 'Master Cloud computing et virtualisation',
-        type: 'line',
+        type: 'column',
         color: '#7e0505',
         data: [
-          47, 52, 44, 35, 58, 69
+          4
         ]
       },
-      {
-        name: 'Licence Big Data et Analyse de Données',
-        type: 'line',
-        color: '#7e0505',
-        data: [
-          37, 22, 64, 25, 88, 76
-        ]
-      },
-      {
-        name: 'Licence Computer Science GLIS',
-        type: 'line',
-        color:'#7FFFD4',
-        data: [
-          47, 22, 44, 15, 78, 23
-        ]
-      },
-
-      {
-        name: 'Licence Computer Engineering-ingéierie des réseaux et systémes',
-        type: 'line',
-        color: '#8A2BE2',
-        data: [
-          47, 52, 44, 35, 58, 69
-        ]
-      },
+     
+      
       {
         name: 'Executive MBA',
-        type: 'line',
+        type: 'column',
         color: '#FF7F50',
         data: [
-          10, 12, 14, 12, 18, 20
+          10
         ]
       },
     ],
     credits: {
       enabled: false
     }
-  })
-
-  constructor() { }
-
-  ngOnInit(): void {
+  });
+  chart2 = new Chart({
+    chart: {
+      type: 'column',  // Change the chart type to 'column' for vertical bars
+      height: 325,
+      width:470
+    },
+    title: {
+      text: "Student's number in licence diploma"
+    },
+    xAxis: {
+      categories: [
+      
+        'LBDADD',
+        'LCSGLIS',
+        'LCERS',
+       
+      ]
+    },
+    yAxis: {
+      title: {
+        text: 'Number of Admissions'
+      }
+    },
+    series: [
+     
+      {
+        name: 'Licence Big Data et Analyse de Données',
+        type: 'column',
+        color: '#7e0505',
+        data: [
+          8
+        ]
+      },
+      {
+        name: 'Licence Computer Science GLIS',
+        type: 'column',
+        color:'#7FFFD4',
+        data: [
+          7
+        ]
+      },
+      {
+        name: 'Licence Computer Engineering-ingéierie des réseaux et systémes',
+        type: 'column',
+        color: '#8A2BE2',
+        data: [
+          4
+        ]
+      }
+    ],
+    credits: {
+      enabled: false
+    }
+  });
+  transactions = [
+    {
+      id: 1,
+      title: "fida ben slimen",
+      date: "22/05/2023",
+      field: "Executive MBA",
+      type:"Null",
+      status: "Unpaid",
+     
+    },
+    {
+      id: 2,
+      title: "ghada soltani",
+      date: "27/05/2023",
+      field: "MASTER CYBER SECURITY",
+      type:"cheque",
+      status: "Unpaid",
+    
+    },
+   
+    {
+      id: 3,
+      title: "Sirin gebsi",
+      date: "12/06/2023",
+      field: "Licence Computer Science GLIS",
+      type:"preuve",
+      status: "Pending",
+    
+    }
+  ];
+  receivedData: any[] = [];
+  
+ 
+  getFileUrl(fileName: string): string {
+    // Assuming your files are served from a static assets directory named 'files'
+    return `/assets/files/${fileName}`;
   }
+  
+  
 
-}
+} 

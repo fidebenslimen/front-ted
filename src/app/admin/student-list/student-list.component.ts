@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 import { user } from 'src/app/models/user';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { UserManagmentService } from 'src/app/services/user-managment.service';
 
 @Component({
 
@@ -22,12 +22,12 @@ export class StudentListComponent  implements OnInit{
   StudentsModel  : StudentsModel = new  StudentsModel ();
  studentsData !:any;
  model!: NgbDateStruct;
- constructor(private AdduserService: AdduserService,private router: Router) { 
+ constructor(private AdduserService: AdduserService,private router: Router,private UserManagmentService:UserManagmentService) { 
 
  }
  
  ngOnInit(): void {
-  //throw new Error('Method not implemented.');
+  this.getUserStudent('STUDENT')
 }
 selectedFiles?: FileList;
 currentFile?: File;
@@ -61,8 +61,15 @@ selectFile(event: any): void {
     }
   }
 }
-
-
+StudentDetails:any
+getUserStudent(diplome: string) {
+  this.UserManagmentService.getUserByRole('STUDENT')
+    .subscribe((StudentDetails:  StudentsModel[]) => {
+      this.StudentDetails = StudentDetails;
+    }, (error) => {
+      console.error(error);
+    });
+}
 
 onSubmit(form: NgForm) {
   let user = {

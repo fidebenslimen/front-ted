@@ -12,12 +12,12 @@ export class AdmissionService {
   private apiBaseUrl = '/api/v1/springfever/api/demandeAdmissions';
 
   AddActURL : string;
-  getActURL : string;
 
  constructor(private http: HttpClient) {  
    this.AddActURL = 'http://localhost:8099/api/v1/springfever/api/demandeAdmissions/';
-   this.getActURL='http://localhost:8099/api/v1/springfever/api/demandeAdmissions/{{idAdmission}}';
+   
 }
+
 
 
  httpOptions = {
@@ -31,10 +31,22 @@ export class AdmissionService {
    const response = await axios.get(this.AddActURL);
    return response.data || [];
  }
-
+ getfile(location: string): Observable<any> {
+  const url = `http://localhost:8099/api/v1/springfever/file-system/image//${location}`;
+  return this.http.get<any>(url);
+}
+ 
  // GET demande d'admission by id
  getDemandeAdmission(id: number): Observable<any> {
   const url = `http://localhost:8099/api/v1/springfever/api/demandeAdmissions/${id}`;
+  return this.http.get<any>(url);
+}
+getDemandeAdmissionBydiplome(dip: string): Observable<any> {
+  const url = `http://localhost:8099/api/v1/springfever/api/demandeAdmissions/diplome/${dip}`;
+  return this.http.get<any>(url);
+}
+getCvv(cvv: string): Observable<any> {
+  const url = `http://localhost:8099/api/v1/springfever/file-system/image/${cvv}`;
   return this.http.get<any>(url);
 }
  // POST a new demande d'admission
@@ -51,8 +63,9 @@ export class AdmissionService {
 
  // DELETE demande d'admission by id
  deleteDemandeAdmission(id: number): Observable<admissions> {
-   const url = `${this.AddActURL}/${id}`;
-   return this.http.delete<admissions>(url, this.httpOptions);
- }
+  const url = `http://localhost:8099/api/v1/springfever/api/demandeAdmissions/${id}`;
+  return this.http.delete<admissions>(url, this.httpOptions);
+}
+
  
 }
